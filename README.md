@@ -8,6 +8,6 @@ Lister is tested on iOS 6 and 7, and requires ARC. Released under the [MIT licen
 
 ## TODO
 
-* Add ability to login via username : password instead of API Token
+* Add ability to login via username / password instead of API Token
 * Add ability to upvote list items
 * Add ability to view publicly accesible lists
