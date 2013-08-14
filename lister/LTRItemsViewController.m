@@ -7,7 +7,7 @@
 //
 
 #import "LTRItemsViewController.h"
-#import "LTRAddItemViewController.h"
+#import "LTRAddEditItemViewController.h"
 #import "LTRHTTPClient.h"
 #import "LTRUtility.h"
 
@@ -17,10 +17,10 @@
 
 @implementation LTRItemsViewController
 
-- (id)initWithListId:(NSString *)listID {
+- (id)initWithList:(LTRList *)list {
     self = [super init];
     if (self) {
-        _listID = listID;
+        _list = list;
     }
     return self;
 }
@@ -32,10 +32,15 @@
     _randomColor = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
     self.tableView.backgroundColor = _randomColor;
     
-    self.navigationItem.title = _listName;
+    self.navigationItem.title = _list.listName;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                               target:self action:@selector(addItem:)];
+
+    UISwipeGestureRecognizer *gestureRight = [[UISwipeGestureRecognizer alloc]
+                                              initWithTarget:self action:@selector(editItem:)];
+    gestureRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.tableView addGestureRecognizer:gestureRight];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -45,23 +50,25 @@
 }
 
 - (void)refresh:(id)sender {
-    [[LTRHTTPClient sharedInstance] getItems:_listID onCompletion:^(NSArray *json) {
-        _allItems = [[NSMutableArray alloc] initWithArray:json];
+    [[LTRHTTPClient sharedInstance] getItems:_list.listId onCompletion:^(NSArray *json) {
+        _allItems = [NSMutableArray new];
         _filteredItems = [NSMutableArray new];
-        
-        for (NSDictionary *itemDict in _allItems) {
-            NSString *evalListID = [itemDict objectForKey:@"listId"];
-            if ([_listID isEqualToString:evalListID]) {
-                [_filteredItems addObject:itemDict];
+
+        for (NSDictionary *dict in json) {
+            LTRItem *item = [[LTRItem alloc] initWithData:dict];
+            [_allItems addObject:item];
+            
+            if ([_list.listId isEqualToString:item.listId]) {
+                [_filteredItems addObject:item];
             }
         }
-        
+
         [self.tableView reloadData];
     }];
 }
 
 - (void)addItem:(id)sender {
-    LTRAddItemViewController *addItemViewController = [[LTRAddItemViewController alloc] initWithListId:_listID withListName:_listName];
+    LTRAddEditItemViewController *addItemViewController = [[LTRAddEditItemViewController alloc] initWithList:_list];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addItemViewController];
     if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
         navController.navigationBar.tintColor = [UIColor lightGrayColor];
@@ -69,7 +76,21 @@
 	[self presentViewController:navController animated:YES completion:nil];
 }
 
-#pragma mark - Table view data source
+- (void)editItem:(UISwipeGestureRecognizer *)recognizer {
+    CGPoint swipeLocation = [recognizer locationInView:self.tableView];
+    NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
+    LTRItem *item = [_filteredItems objectAtIndex:swipedIndexPath.row];
+    
+    LTRAddEditItemViewController *editItemViewController = [[LTRAddEditItemViewController alloc] initForEdit:item
+                                                                                                     forList:_list];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:editItemViewController];
+    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        navController.navigationBar.tintColor = [UIColor lightGrayColor];
+    }
+	[self presentViewController:navController animated:YES completion:nil];
+}
+
+#pragma mark - UITableView data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -87,8 +108,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    NSDictionary *listDict = [_filteredItems objectAtIndex:indexPath.row];
-    cell.textLabel.text = [listDict objectForKey:@"text"];
+    LTRItem *item = [_filteredItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = item.itemText;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
@@ -106,12 +127,12 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+                                            forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSDictionary *listDict = [_filteredItems objectAtIndex:indexPath.row];
-        NSString *itemId = [listDict objectForKey:@"_id"];
-        [[LTRHTTPClient sharedInstance] deleteItem:itemId onCompletion:^(NSArray *json) {
+        LTRItem *item = [_filteredItems objectAtIndex:indexPath.row];
+        [[LTRHTTPClient sharedInstance] deleteItem:item.itemId onCompletion:^(NSArray *json) {
             [self refresh:nil];
         }];
     }

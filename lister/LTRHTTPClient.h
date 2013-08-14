@@ -7,6 +7,8 @@
 //
 
 #import "AFNetworking.h"
+#import "LTRList.h"
+#import "LTRItem.h"
 
 typedef void (^JSONResponseBlock)(NSArray* json);
 
@@ -18,8 +20,10 @@ typedef void (^JSONResponseBlock)(NSArray* json);
 - (void)getLists:(NSString *)apiToken onCompletion:(JSONResponseBlock)completionBlock;
 - (void)getItems:(NSString *)listID onCompletion:(JSONResponseBlock)completionBlock;
 - (void)addList:(NSString *)listText isOpen:(BOOL)open onCompletion:(JSONResponseBlock)completionBlock;
-- (void)addItem:(NSString *)itemText withListId:(NSString *)listId withListName:(NSString *)listName onCompletion:(JSONResponseBlock)completionBlock;
+- (void)addItem:(NSString *)itemText forList:(LTRList *)list onCompletion:(JSONResponseBlock)completionBlock;
 - (void)deleteList:(NSString *)listId onCompletion:(JSONResponseBlock)completionBlock;
 - (void)deleteItem:(NSString *)itemId onCompletion:(JSONResponseBlock)completionBlock;
+- (void)editList:(LTRList *)list onCompletion:(JSONResponseBlock)completionBlock;
+- (void)editItem:(LTRItem *)item onCompletion:(JSONResponseBlock)completionBlock;
 
 @end

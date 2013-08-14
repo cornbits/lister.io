@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Geoff Cornwall. All rights reserved.
 //
 
+#import "LTRList.h"
+
 @interface LTRListsViewController : UITableViewController {
     NSString *_apiToken;
     NSMutableArray *_lists;

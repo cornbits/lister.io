@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 Geoff Cornwall. All rights reserved.
 //
 
+#import "LTRList.h"
+
 @interface LTRItemsViewController : UITableViewController {
+    LTRList *_list;
     NSMutableArray *_allItems;
     NSMutableArray *_filteredItems;
     UIColor *_randomColor;
 }
 
-@property (nonatomic) NSString *listID;
-@property (nonatomic) NSString *listName;
-
-- (id)initWithListId:(NSString *)listID;
+- (id)initWithList:(LTRList *)list;
 
 @end

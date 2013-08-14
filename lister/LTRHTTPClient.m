@@ -50,6 +50,7 @@
 - (void)getLists:(NSString *)apiToken onCompletion:(JSONResponseBlock)completionBlock {
     NSString *apiURL = [NSString stringWithFormat:@"http://lister.io/api/v1/lists?auth-token=%@", apiToken];
     NSURL *url = [NSURL URLWithString:apiURL];
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"GET"];
     [request setTimeoutInterval:10];
@@ -76,6 +77,7 @@
     NSString *apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiToken"];
     NSString *apiURL = [NSString stringWithFormat:@"http://lister.io/api/v1/items?auth-token=%@", apiToken];
     NSURL *url = [NSURL URLWithString:apiURL];
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"GET"];
     [request setTimeoutInterval:10];
@@ -100,9 +102,9 @@
     
     NSString *parameters = [NSString stringWithFormat:@"{\"name\" : \"%@\" , \"open\" : \"%@\" , \"userId\" : \"%@\" , \"username\" : \"%@\" , \"slug\" : \"%@\"}", listText, openAsText, userId, username, [LTRUtility slugName:listText]];
     NSData *postData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
-    
     NSString *apiURL = [NSString stringWithFormat:@"http://lister.io/api/v1/lists?auth-token=%@", apiToken];
     NSURL *url = [NSURL URLWithString:apiURL];
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -122,16 +124,16 @@
 }
 
 
-- (void)addItem:(NSString *)itemText withListId:(NSString *)listId withListName:(NSString *)listName onCompletion:(JSONResponseBlock)completionBlock {
+- (void)addItem:(NSString *)itemText forList:(LTRList *)list onCompletion:(JSONResponseBlock)completionBlock {
     NSString *apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiToken"];
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    
-    NSString *parameters = [NSString stringWithFormat:@"{\"userId\":\"%@\",\"listId\":\"%@\",\"username\":\"%@\",\"listSlug\":\"%@\",\"text\":\"%@\"}", userId, listId, username, [LTRUtility slugName:listName], itemText];
+
+    NSString *parameters = [NSString stringWithFormat:@"{\"userId\":\"%@\",\"listId\":\"%@\",\"username\":\"%@\",\"listSlug\":\"%@\",\"text\":\"%@\"}", userId, list.listId, username, [LTRUtility slugName:list.listName], itemText];
     NSData *postData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
-    
-    NSString *apiURL = [NSString stringWithFormat:@"http://lister.io/api/v1/items/%@?auth-token=%@", listId, apiToken];
+    NSString *apiURL = [NSString stringWithFormat:@"http://lister.io/api/v1/items/%@?auth-token=%@", list.listId, apiToken];
     NSURL *url = [NSURL URLWithString:apiURL];
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -154,9 +156,9 @@
     NSString *apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiToken"];
     NSString *parameters = [NSString stringWithFormat:@"{\"_id\" : \"%@\"}", listId];
     NSData *postData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
-    
     NSString *apiURL = [NSString stringWithFormat:@"http://lister.io/api/v1/lists/%@?auth-token=%@", listId, apiToken];
     NSURL *url = [NSURL URLWithString:apiURL];
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"DELETE"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -179,9 +181,9 @@
     NSString *apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiToken"];
     NSString *parameters = [NSString stringWithFormat:@"{\"_id\" : \"%@\"}", itemId];
     NSData *postData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
-
     NSString *apiURL = [NSString stringWithFormat:@"http://lister.io/api/v1/items/%@?auth-token=%@", itemId, apiToken];
     NSURL *url = [NSURL URLWithString:apiURL];
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"DELETE"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -194,6 +196,60 @@
         completionBlock(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"deleteItem: FAILURE");
+        completionBlock([NSArray arrayWithObject:[error localizedDescription]]);
+    }];
+    
+    [operation start];
+}
+
+- (void)editList:(LTRList *)list onCompletion:(JSONResponseBlock)completionBlock {
+    NSString *apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiToken"];
+    NSString *openAsText = list.isOpen ? @"true" : @"false";
+    
+    NSString *parameters = [NSString stringWithFormat:@"{\"name\" : \"%@\" , \"open\" : %@}", list.listName, openAsText];
+    NSData *postData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
+    NSString *apiURL = [NSString stringWithFormat:@"http://lister.io/api/v1/lists/%@?auth-token=%@",
+                        list.listId, apiToken];
+    NSURL *url = [NSURL URLWithString:apiURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"PUT"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    [request setTimeoutInterval:10];
+    
+    AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"editList: SUCCESS");
+        completionBlock(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"editList: FAILURE");
+        completionBlock([NSArray arrayWithObject:[error localizedDescription]]);
+    }];
+    
+    [operation start];
+}
+
+- (void)editItem:(LTRItem *)item onCompletion:(JSONResponseBlock)completionBlock {
+    NSString *apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiToken"];
+    
+    NSString *parameters = [NSString stringWithFormat:@"{\"text\":\"%@\"}", item.itemText];
+    NSData *postData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
+    NSString *apiURL = [NSString stringWithFormat:@"http://lister.io/api/v1/items/%@?auth-token=%@", item.itemId, apiToken];
+    NSURL *url = [NSURL URLWithString:apiURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"PUT"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    [request setTimeoutInterval:10];
+    
+    AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"editItem: SUCCESS");
+        completionBlock(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"editItem: FAILURE");
         completionBlock([NSArray arrayWithObject:[error localizedDescription]]);
     }];
     

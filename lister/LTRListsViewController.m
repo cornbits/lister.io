@@ -8,7 +8,7 @@
 
 #import "LTRListsViewController.h"
 #import "LTRItemsViewController.h"
-#import "LTRAddListViewController.h"
+#import "LTRAddEditListViewController.h"
 #import "LTRLoginViewController.h"
 #import "LTRHTTPClient.h"
 #import "LTRUtility.h"
@@ -32,6 +32,11 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithTitle:@"Logout" style:UIBarButtonSystemItemAction
                                              target:self action:@selector(logout:)];
+    
+    UISwipeGestureRecognizer *gestureRight = [[UISwipeGestureRecognizer alloc]
+                                              initWithTarget:self action:@selector(editList:)];
+    gestureRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.tableView addGestureRecognizer:gestureRight];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -60,14 +65,19 @@
     }
     else {
         [[LTRHTTPClient sharedInstance] getLists:_apiToken onCompletion:^(NSArray *json) {
-            _lists = [[NSMutableArray alloc] initWithArray:json];
+            _lists = [NSMutableArray new];
+            for (NSDictionary *dict in json) {
+                LTRList *list = [[LTRList alloc] initWithData:dict];
+                [_lists addObject:list];
+            }
+            
             [self.tableView reloadData];
         }];
     }
 }
 
 - (void)addList:(id)sender {
-    LTRAddListViewController *addListViewController = [[LTRAddListViewController alloc] init];
+    LTRAddEditListViewController *addListViewController = [[LTRAddEditListViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addListViewController];
     if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
         navController.navigationBar.tintColor = [UIColor lightGrayColor];
@@ -84,6 +94,19 @@
 	[self presentViewController:navController animated:YES completion:nil];
 }
 
+- (void)editList:(UISwipeGestureRecognizer *)recognizer {
+    CGPoint swipeLocation = [recognizer locationInView:self.tableView];
+    NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
+    LTRList *list = [_lists objectAtIndex:swipedIndexPath.row];
+
+    LTRAddEditListViewController *editListViewController = [[LTRAddEditListViewController alloc] initForEdit:list];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:editListViewController];
+    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        navController.navigationBar.tintColor = [UIColor lightGrayColor];
+    }
+	[self presentViewController:navController animated:YES completion:nil];
+}
+
 - (void)logout:(id)sender {
     [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"username"];
     [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"userId"];
@@ -94,7 +117,7 @@
     [self refresh:nil];
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableView data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -112,12 +135,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    NSDictionary *listDict = [_lists objectAtIndex:indexPath.row];
-    cell.textLabel.text = [listDict objectForKey:@"name"];
+    LTRList *list = [_lists objectAtIndex:indexPath.row];
+    cell.textLabel.text = list.listName;
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:16];
+    
     return cell;
 }
 
@@ -130,24 +155,22 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+                                            forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Call delete
-        NSDictionary *listDict = [_lists objectAtIndex:indexPath.row];
-        NSString *listId = [listDict objectForKey:@"_id"];
-        [[LTRHTTPClient sharedInstance] deleteList:listId onCompletion:^(NSArray *json) {
+        LTRList *list = [_lists objectAtIndex:indexPath.row];
+        [[LTRHTTPClient sharedInstance] deleteList:list.listId onCompletion:^(NSArray *json) {
             [self refresh:nil];
         }];
     }
 }
 
-#pragma mark - Table view delegate
+#pragma mark - UITableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *listDict = [_lists objectAtIndex:indexPath.row];
-    LTRItemsViewController *itemsViewController = [[LTRItemsViewController alloc] initWithListId:[listDict objectForKey:@"_id"]];
-    itemsViewController.listName = [listDict objectForKey:@"name"];
+    LTRList *list = [_lists objectAtIndex:indexPath.row];
+    LTRItemsViewController *itemsViewController = [[LTRItemsViewController alloc] initWithList:list];
     [self.navigationController pushViewController:itemsViewController animated:YES];
 }
 

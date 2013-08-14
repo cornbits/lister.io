@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA31982F17A9B1BA003DD2B0 /* LTRAddListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA31982E17A9B1BA003DD2B0 /* LTRAddListViewController.m */; };
+		FA3062D717BBCD2F0025D902 /* LTRList.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3062D617BBCD2F0025D902 /* LTRList.m */; };
+		FA3062DA17BBCD460025D902 /* LTRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3062D917BBCD460025D902 /* LTRItem.m */; };
+		FA31982F17A9B1BA003DD2B0 /* LTRAddEditListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA31982E17A9B1BA003DD2B0 /* LTRAddEditListViewController.m */; };
 		FA31983217A9B95A003DD2B0 /* LTRUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FA31983117A9B95A003DD2B0 /* LTRUtility.m */; };
 		FAD81B9E17A9CAAF007CCDB0 /* LTRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD81B9D17A9CAAF007CCDB0 /* LTRLoginViewController.m */; };
 		FAE2F8D017A9881B0066438C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2F8CF17A9881B0066438C /* UIKit.framework */; };
@@ -34,14 +36,18 @@
 		FAE2F91317A98C890066438C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2F91217A98C890066438C /* MobileCoreServices.framework */; };
 		FAE2F91517A98D1B0066438C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2F91417A98D1B0066438C /* Security.framework */; };
 		FAE2F91917A98DC00066438C /* LTRHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE2F91817A98DC00066438C /* LTRHTTPClient.m */; };
-		FAE2F91C17A99AD90066438C /* LTRAddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE2F91B17A99AD90066438C /* LTRAddItemViewController.m */; };
+		FAE2F91C17A99AD90066438C /* LTRAddEditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE2F91B17A99AD90066438C /* LTRAddEditItemViewController.m */; };
 		FAF94CBA17AA253E00821067 /* lister_57.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF94CB917AA253E00821067 /* lister_57.png */; };
 		FAF94CBC17AA255700821067 /* lister_114.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF94CBB17AA255700821067 /* lister_114.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA31982D17A9B1BA003DD2B0 /* LTRAddListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRAddListViewController.h; sourceTree = "<group>"; };
-		FA31982E17A9B1BA003DD2B0 /* LTRAddListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRAddListViewController.m; sourceTree = "<group>"; };
+		FA3062D517BBCD2F0025D902 /* LTRList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRList.h; sourceTree = "<group>"; };
+		FA3062D617BBCD2F0025D902 /* LTRList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRList.m; sourceTree = "<group>"; };
+		FA3062D817BBCD460025D902 /* LTRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRItem.h; sourceTree = "<group>"; };
+		FA3062D917BBCD460025D902 /* LTRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRItem.m; sourceTree = "<group>"; };
+		FA31982D17A9B1BA003DD2B0 /* LTRAddEditListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRAddEditListViewController.h; sourceTree = "<group>"; };
+		FA31982E17A9B1BA003DD2B0 /* LTRAddEditListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRAddEditListViewController.m; sourceTree = "<group>"; };
 		FA31983017A9B95A003DD2B0 /* LTRUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRUtility.h; sourceTree = "<group>"; };
 		FA31983117A9B95A003DD2B0 /* LTRUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRUtility.m; sourceTree = "<group>"; };
 		FAD81B9C17A9CAAF007CCDB0 /* LTRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRLoginViewController.h; sourceTree = "<group>"; };
@@ -87,8 +93,8 @@
 		FAE2F91417A98D1B0066438C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FAE2F91717A98DC00066438C /* LTRHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRHTTPClient.h; sourceTree = "<group>"; };
 		FAE2F91817A98DC00066438C /* LTRHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRHTTPClient.m; sourceTree = "<group>"; };
-		FAE2F91A17A99AD90066438C /* LTRAddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRAddItemViewController.h; sourceTree = "<group>"; };
-		FAE2F91B17A99AD90066438C /* LTRAddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRAddItemViewController.m; sourceTree = "<group>"; };
+		FAE2F91A17A99AD90066438C /* LTRAddEditItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRAddEditItemViewController.h; sourceTree = "<group>"; };
+		FAE2F91B17A99AD90066438C /* LTRAddEditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRAddEditItemViewController.m; sourceTree = "<group>"; };
 		FAF94CB917AA253E00821067 /* lister_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lister_57.png; sourceTree = "<group>"; };
 		FAF94CBB17AA255700821067 /* lister_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lister_114.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,13 +116,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA3062D417BBCD0B0025D902 /* Data Objects */ = {
+			isa = PBXGroup;
+			children = (
+				FA3062D517BBCD2F0025D902 /* LTRList.h */,
+				FA3062D617BBCD2F0025D902 /* LTRList.m */,
+				FA3062D817BBCD460025D902 /* LTRItem.h */,
+				FA3062D917BBCD460025D902 /* LTRItem.m */,
+			);
+			name = "Data Objects";
+			sourceTree = "<group>";
+		};
 		FA49A99617AA000E002F7122 /* Lists */ = {
 			isa = PBXGroup;
 			children = (
 				FAE2F8EC17A988330066438C /* LTRListsViewController.h */,
 				FAE2F8ED17A988330066438C /* LTRListsViewController.m */,
-				FA31982D17A9B1BA003DD2B0 /* LTRAddListViewController.h */,
-				FA31982E17A9B1BA003DD2B0 /* LTRAddListViewController.m */,
+				FA31982D17A9B1BA003DD2B0 /* LTRAddEditListViewController.h */,
+				FA31982E17A9B1BA003DD2B0 /* LTRAddEditListViewController.m */,
 			);
 			name = Lists;
 			sourceTree = "<group>";
@@ -126,8 +143,8 @@
 			children = (
 				FAE2F8EF17A988430066438C /* LTRItemsViewController.h */,
 				FAE2F8F017A988430066438C /* LTRItemsViewController.m */,
-				FAE2F91A17A99AD90066438C /* LTRAddItemViewController.h */,
-				FAE2F91B17A99AD90066438C /* LTRAddItemViewController.m */,
+				FAE2F91A17A99AD90066438C /* LTRAddEditItemViewController.h */,
+				FAE2F91B17A99AD90066438C /* LTRAddEditItemViewController.m */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -168,6 +185,7 @@
 		FAE2F8D517A9881B0066438C /* lister */ = {
 			isa = PBXGroup;
 			children = (
+				FA3062D417BBCD0B0025D902 /* Data Objects */,
 				FAE2F8D617A9881B0066438C /* Supporting Files */,
 				FA49A99617AA000E002F7122 /* Lists */,
 				FA49A99717AA0013002F7122 /* Items */,
@@ -303,19 +321,21 @@
 				FAE2F8EE17A988330066438C /* LTRListsViewController.m in Sources */,
 				FAE2F8F117A988430066438C /* LTRItemsViewController.m in Sources */,
 				FAE2F90717A98BB70066438C /* AFHTTPClient.m in Sources */,
+				FA3062DA17BBCD460025D902 /* LTRItem.m in Sources */,
 				FAE2F90817A98BB70066438C /* AFHTTPRequestOperation.m in Sources */,
-				FA31982F17A9B1BA003DD2B0 /* LTRAddListViewController.m in Sources */,
+				FA31982F17A9B1BA003DD2B0 /* LTRAddEditListViewController.m in Sources */,
 				FAE2F90917A98BB70066438C /* AFImageRequestOperation.m in Sources */,
 				FA31983217A9B95A003DD2B0 /* LTRUtility.m in Sources */,
 				FAE2F90A17A98BB70066438C /* AFJSONRequestOperation.m in Sources */,
 				FAE2F90B17A98BB70066438C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				FAE2F90C17A98BB70066438C /* AFPropertyListRequestOperation.m in Sources */,
+				FA3062D717BBCD2F0025D902 /* LTRList.m in Sources */,
 				FAE2F90D17A98BB70066438C /* AFURLConnectionOperation.m in Sources */,
 				FAE2F90E17A98BB70066438C /* AFXMLRequestOperation.m in Sources */,
 				FAD81B9E17A9CAAF007CCDB0 /* LTRLoginViewController.m in Sources */,
 				FAE2F90F17A98BB70066438C /* UIImageView+AFNetworking.m in Sources */,
 				FAE2F91917A98DC00066438C /* LTRHTTPClient.m in Sources */,
-				FAE2F91C17A99AD90066438C /* LTRAddItemViewController.m in Sources */,
+				FAE2F91C17A99AD90066438C /* LTRAddEditItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
