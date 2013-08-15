@@ -19,7 +19,7 @@
         _userId = [data objectForKey:@"userId"];
         _username = [data objectForKey:@"username"];
         _listSlug = [data objectForKey:@"listSlug"];
-        _score = [data objectForKey:@"score"];
+        _score = [[data objectForKey:@"score"] intValue];
 	}
 	return self;
 }

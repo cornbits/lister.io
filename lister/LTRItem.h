@@ -12,7 +12,7 @@
 @property (nonatomic) NSString *itemText;
 @property (nonatomic) NSString *listId;
 @property (nonatomic) NSString *listSlug;
-@property (nonatomic) NSNumber *score;
+@property (nonatomic) int score;
 @property (nonatomic) NSString *userId;
 @property (nonatomic) NSString *username;
 

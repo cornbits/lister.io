@@ -114,6 +114,11 @@
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:16];
+    
+    if (item.score > 0) {
+        UIImageView *heartImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"heart.png"]];
+        cell.accessoryView = heartImgView;
+    }
 
     return cell;
 }

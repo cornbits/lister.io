@@ -11,6 +11,8 @@
 		FA3062DA17BBCD460025D902 /* LTRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3062D917BBCD460025D902 /* LTRItem.m */; };
 		FA31982F17A9B1BA003DD2B0 /* LTRAddEditListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA31982E17A9B1BA003DD2B0 /* LTRAddEditListViewController.m */; };
 		FA31983217A9B95A003DD2B0 /* LTRUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FA31983117A9B95A003DD2B0 /* LTRUtility.m */; };
+		FA5351E617BD6420006BDF08 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1FE2BD17BD60EB0040304D /* heart.png */; };
+		FA5351E717BD6423006BDF08 /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1FE2BC17BD5F8F0040304D /* heart@2x.png */; };
 		FAD81B9E17A9CAAF007CCDB0 /* LTRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD81B9D17A9CAAF007CCDB0 /* LTRLoginViewController.m */; };
 		FAE2F8D017A9881B0066438C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2F8CF17A9881B0066438C /* UIKit.framework */; };
 		FAE2F8D217A9881B0066438C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2F8D117A9881B0066438C /* Foundation.framework */; };
@@ -42,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA1FE2BC17BD5F8F0040304D /* heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart@2x.png"; sourceTree = "<group>"; };
+		FA1FE2BD17BD60EB0040304D /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		FA3062D517BBCD2F0025D902 /* LTRList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRList.h; sourceTree = "<group>"; };
 		FA3062D617BBCD2F0025D902 /* LTRList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRList.m; sourceTree = "<group>"; };
 		FA3062D817BBCD460025D902 /* LTRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRItem.h; sourceTree = "<group>"; };
@@ -116,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA1FE2BB17BD5F8F0040304D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				FA1FE2BD17BD60EB0040304D /* heart.png */,
+				FA1FE2BC17BD5F8F0040304D /* heart@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		FA3062D417BBCD0B0025D902 /* Data Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +217,7 @@
 		FAE2F8D617A9881B0066438C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA1FE2BB17BD5F8F0040304D /* images */,
 				FAE2F8D717A9881B0066438C /* lister-Info.plist */,
 				FAE2F8D817A9881B0066438C /* InfoPlist.strings */,
 				FAE2F8DB17A9881B0066438C /* main.m */,
@@ -300,10 +314,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5351E617BD6420006BDF08 /* heart.png in Resources */,
 				FAE2F8DA17A9881B0066438C /* InfoPlist.strings in Resources */,
 				FAE2F8E217A9881B0066438C /* Default.png in Resources */,
 				FAE2F8E417A9881B0066438C /* Default@2x.png in Resources */,
 				FAE2F8E617A9881B0066438C /* Default-568h@2x.png in Resources */,
+				FA5351E717BD6423006BDF08 /* heart@2x.png in Resources */,
 				FAF94CBA17AA253E00821067 /* lister_57.png in Resources */,
 				FAF94CBC17AA255700821067 /* lister_114.png in Resources */,
 			);
