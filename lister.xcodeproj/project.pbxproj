@@ -185,8 +185,8 @@
 		FAE2F8D517A9881B0066438C /* lister */ = {
 			isa = PBXGroup;
 			children = (
-				FA3062D417BBCD0B0025D902 /* Data Objects */,
 				FAE2F8D617A9881B0066438C /* Supporting Files */,
+				FA3062D417BBCD0B0025D902 /* Data Objects */,
 				FA49A99617AA000E002F7122 /* Lists */,
 				FA49A99717AA0013002F7122 /* Items */,
 				FAE2F8DE17A9881B0066438C /* LTRAppDelegate.h */,
