@@ -172,6 +172,7 @@
     LTRList *list = [_lists objectAtIndex:indexPath.row];
     LTRItemsViewController *itemsViewController = [[LTRItemsViewController alloc] initWithList:list];
     [self.navigationController pushViewController:itemsViewController animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 @end
