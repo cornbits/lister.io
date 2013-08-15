@@ -9,6 +9,7 @@ Lister is tested on iOS 6 and 7, and requires ARC. Released under the [MIT licen
 ## Screenshots
 
 <img src="http://i.imgur.com/ON2LvcF.png" width=320 height=568 alt="lister1">
+&nbsp;&nbsp;
 <img src="http://i.imgur.com/wngOZbk.png" width=320 height=568 alt="lister2">
 
 ## TODO
