@@ -41,8 +41,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    _apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiToken"];
     [self refresh:nil];
 }
 
@@ -57,9 +55,12 @@
     [[NSUserDefaults standardUserDefaults] setObject:colorData forKey:@"color"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.tableView.backgroundColor = _randomColor;
+    [self refresh:nil];
 }
 
 - (void)refresh:(id)sender {
+    _apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiToken"];
+
     if (_apiToken == nil) {
         [self displayLogin];
     }
