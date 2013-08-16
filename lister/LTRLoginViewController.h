@@ -9,6 +9,7 @@
 @interface LTRLoginViewController : UIViewController <UITextFieldDelegate> {
     UITextField *_apiToken;
     UIColor *_randomColor;
+    UIButton *_loginButton;
 }
 
 @end

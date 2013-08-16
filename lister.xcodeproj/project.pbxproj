@@ -13,6 +13,7 @@
 		FA31983217A9B95A003DD2B0 /* LTRUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FA31983117A9B95A003DD2B0 /* LTRUtility.m */; };
 		FA5351E617BD6420006BDF08 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1FE2BD17BD60EB0040304D /* heart.png */; };
 		FA5351E717BD6423006BDF08 /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1FE2BC17BD5F8F0040304D /* heart@2x.png */; };
+		FA84B55317BE79C000E4D201 /* LTRLoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA84B55217BE79C000E4D201 /* LTRLoginWebViewController.m */; };
 		FAD81B9E17A9CAAF007CCDB0 /* LTRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD81B9D17A9CAAF007CCDB0 /* LTRLoginViewController.m */; };
 		FAE2F8D017A9881B0066438C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2F8CF17A9881B0066438C /* UIKit.framework */; };
 		FAE2F8D217A9881B0066438C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2F8D117A9881B0066438C /* Foundation.framework */; };
@@ -54,6 +55,8 @@
 		FA31982E17A9B1BA003DD2B0 /* LTRAddEditListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRAddEditListViewController.m; sourceTree = "<group>"; };
 		FA31983017A9B95A003DD2B0 /* LTRUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRUtility.h; sourceTree = "<group>"; };
 		FA31983117A9B95A003DD2B0 /* LTRUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRUtility.m; sourceTree = "<group>"; };
+		FA84B55117BE79C000E4D201 /* LTRLoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRLoginWebViewController.h; sourceTree = "<group>"; };
+		FA84B55217BE79C000E4D201 /* LTRLoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRLoginWebViewController.m; sourceTree = "<group>"; };
 		FAD81B9C17A9CAAF007CCDB0 /* LTRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRLoginViewController.h; sourceTree = "<group>"; };
 		FAD81B9D17A9CAAF007CCDB0 /* LTRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRLoginViewController.m; sourceTree = "<group>"; };
 		FAE2F8CC17A9881B0066438C /* Lister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lister.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +165,17 @@
 			name = Items;
 			sourceTree = "<group>";
 		};
+		FA84B55017BE799B00E4D201 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FAD81B9C17A9CAAF007CCDB0 /* LTRLoginViewController.h */,
+				FAD81B9D17A9CAAF007CCDB0 /* LTRLoginViewController.m */,
+				FA84B55117BE79C000E4D201 /* LTRLoginWebViewController.h */,
+				FA84B55217BE79C000E4D201 /* LTRLoginWebViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		FAE2F8C317A9881B0066438C = {
 			isa = PBXGroup;
 			children = (
@@ -202,12 +216,11 @@
 				FA3062D417BBCD0B0025D902 /* Data Objects */,
 				FA49A99617AA000E002F7122 /* Lists */,
 				FA49A99717AA0013002F7122 /* Items */,
+				FA84B55017BE799B00E4D201 /* Login */,
 				FAE2F8DE17A9881B0066438C /* LTRAppDelegate.h */,
 				FAE2F8DF17A9881B0066438C /* LTRAppDelegate.m */,
 				FAE2F91717A98DC00066438C /* LTRHTTPClient.h */,
 				FAE2F91817A98DC00066438C /* LTRHTTPClient.m */,
-				FAD81B9C17A9CAAF007CCDB0 /* LTRLoginViewController.h */,
-				FAD81B9D17A9CAAF007CCDB0 /* LTRLoginViewController.m */,
 				FA31983017A9B95A003DD2B0 /* LTRUtility.h */,
 				FA31983117A9B95A003DD2B0 /* LTRUtility.m */,
 			);
@@ -350,6 +363,7 @@
 				FAE2F90E17A98BB70066438C /* AFXMLRequestOperation.m in Sources */,
 				FAD81B9E17A9CAAF007CCDB0 /* LTRLoginViewController.m in Sources */,
 				FAE2F90F17A98BB70066438C /* UIImageView+AFNetworking.m in Sources */,
+				FA84B55317BE79C000E4D201 /* LTRLoginWebViewController.m in Sources */,
 				FAE2F91917A98DC00066438C /* LTRHTTPClient.m in Sources */,
 				FAE2F91C17A99AD90066438C /* LTRAddEditItemViewController.m in Sources */,
 			);
