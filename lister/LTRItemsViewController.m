@@ -56,10 +56,15 @@
 
         for (NSDictionary *dict in json) {
             LTRItem *item = [[LTRItem alloc] initWithData:dict];
-            [_allItems addObject:item];
+            if (item == nil) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+            else {
+                [_allItems addObject:item];
             
-            if ([_list.listId isEqualToString:item.listId]) {
-                [_filteredItems addObject:item];
+                if ([_list.listId isEqualToString:item.listId]) {
+                    [_filteredItems addObject:item];
+                }
             }
         }
 

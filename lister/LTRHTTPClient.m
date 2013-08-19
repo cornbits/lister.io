@@ -60,7 +60,7 @@
         NSLog(@"getLists: SUCCESS");
         completionBlock(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"getLists: FAILURE");
+        NSLog(@"getItems: FAILURE");
         completionBlock([NSArray arrayWithObject:[error localizedDescription]]);
     }];
     

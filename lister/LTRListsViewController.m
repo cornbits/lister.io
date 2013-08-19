@@ -69,7 +69,14 @@
             _lists = [NSMutableArray new];
             for (NSDictionary *dict in json) {
                 LTRList *list = [[LTRList alloc] initWithData:dict];
-                [_lists addObject:list];
+                if (list == nil) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"An API error occured" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                    [self logout:nil];
+                }
+                else {
+                    [_lists addObject:list];
+                }
             }
             
             [self.tableView reloadData];
