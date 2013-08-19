@@ -22,6 +22,7 @@
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     [_webView loadRequest:requestObj];
+    [_webView setScalesPageToFit:YES];
     _webView.delegate = self;
     [self.view addSubview:_webView];
 }
