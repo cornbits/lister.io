@@ -15,6 +15,7 @@
 @implementation LTRLoginWebViewController
 
 - (void) viewWillAppear:(BOOL)animated {
+    [TestFlight passCheckpoint:@"WEBLOGIN"];
     [super viewWillAppear:animated];
     
     self.navigationItem.title = @"Lister.io";

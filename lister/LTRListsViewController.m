@@ -20,6 +20,7 @@
 @implementation LTRListsViewController
 
 - (void)viewDidLoad {
+    [TestFlight passCheckpoint:@"LISTS_VIEW"];
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];

@@ -18,6 +18,7 @@
 
 
 - (void)viewDidLoad {
+    [TestFlight passCheckpoint:@"LOGIN_VIEW"];
     [super viewDidLoad];
     
     NSData *colorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"color"];

@@ -37,6 +37,7 @@
 
 
 - (void)viewDidLoad {
+    [TestFlight passCheckpoint:@"ADD|EDIT_ITEMS"];
     [super viewDidLoad];
     
     NSData *colorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"color"];
