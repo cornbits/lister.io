@@ -1,6 +1,6 @@
 # Lister.io iOS App
 
-This is an alpha version of an iPhone app for [Lister.io](http://lister.io/). 
+A simple iOS app for [Lister.io](http://lister.io/)
 
 Your participation is welcome. Feel free to fork, add missing features or report issues. 
 
