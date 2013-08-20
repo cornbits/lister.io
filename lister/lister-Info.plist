@@ -14,9 +14,6 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>lister_57</string>
-				<string>lister_120</string>
-				<string>lister_114</string>
 				<string>lister_57.png</string>
 				<string>lister_114.png</string>
 			</array>
@@ -25,7 +22,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.cornbits.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.cornbits.lister</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -37,7 +34,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>
