@@ -74,6 +74,8 @@
 }
 
 - (void)login:(id)sender {
+    [self presentHUD];
+    
     // TODO: replace with actual login endpoint once it exists
     [[LTRHTTPClient sharedInstance] getLists:_apiToken.text onCompletion:^(NSArray *json) {
         NSLog(@"Login results = %@", json);
@@ -83,10 +85,11 @@
             ([[json objectAtIndex:0] rangeOfString:@"Expected status code"].location != NSNotFound ||
             [[json objectAtIndex:0] rangeOfString:@"The request timed out"].location != NSNotFound))
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
+            [self dismissHUDWithText:@"Login error" withDelay:4 withImage:@"x-mark.png"];
         }
         else if ([json count] > 0) {
+            [self dismissHUDWithText:@"Succesful" withDelay:2 withImage:@"checkmark.png"];
+
             NSDictionary *listDict = [json objectAtIndex:0];
             [[NSUserDefaults standardUserDefaults] setValue:[listDict objectForKey:@"username"] forKey:@"username"];
             [[NSUserDefaults standardUserDefaults] setValue:[listDict objectForKey:@"userId"] forKey:@"userId"];
@@ -105,6 +108,22 @@
 - (void)loginWebView:(id)sender {
     LTRLoginWebViewController *webViewController = [[LTRLoginWebViewController alloc] init];
     [self.navigationController pushViewController:webViewController animated:YES];
+}
+
+- (void)presentHUD {
+    _hud = [[MBProgressHUD alloc] initWithView:self.view];
+    _hud.bounds = CGRectMake(_hud.bounds.origin.x, (_hud.bounds.origin.y + 110), _hud.bounds.size.width, _hud.bounds.size.height);
+    _hud.labelText = @"Loading...";
+    [self.view addSubview:_hud];
+    [_hud show:YES];
+}
+
+- (void)dismissHUDWithText:(NSString *)text withDelay:(NSTimeInterval)delay withImage:(NSString *)image {
+    _hud.mode = MBProgressHUDModeCustomView;
+    _hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:image]];
+    _hud.labelText = text;
+    _hud.dimBackground = TRUE;
+    [_hud hide:YES afterDelay:delay];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

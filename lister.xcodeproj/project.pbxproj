@@ -14,6 +14,11 @@
 		FA5351E617BD6420006BDF08 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1FE2BD17BD60EB0040304D /* heart.png */; };
 		FA5351E717BD6423006BDF08 /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1FE2BC17BD5F8F0040304D /* heart@2x.png */; };
 		FA84B55317BE79C000E4D201 /* LTRLoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA84B55217BE79C000E4D201 /* LTRLoginWebViewController.m */; };
+		FACEF06117C3BCF5005AD690 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FACEF06017C3BCF5005AD690 /* MBProgressHUD.m */; };
+		FACEF06417C3C837005AD690 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEF06217C3C837005AD690 /* checkmark.png */; };
+		FACEF06517C3C837005AD690 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEF06317C3C837005AD690 /* checkmark@2x.png */; };
+		FACEF06817C3C90E005AD690 /* x-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEF06617C3C90E005AD690 /* x-mark.png */; };
+		FACEF06917C3C90E005AD690 /* x-mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEF06717C3C90E005AD690 /* x-mark@2x.png */; };
 		FAD5FA3C17C2BE4D005A44BE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD5FA3617C2BE4D005A44BE /* libTestFlight.a */; };
 		FAD5FA3D17C2BE4D005A44BE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FAD5FA3717C2BE4D005A44BE /* README.md */; };
 		FAD5FA3E17C2BE4D005A44BE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FAD5FA3817C2BE4D005A44BE /* release_notes.md */; };
@@ -62,6 +67,12 @@
 		FA31983117A9B95A003DD2B0 /* LTRUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRUtility.m; sourceTree = "<group>"; };
 		FA84B55117BE79C000E4D201 /* LTRLoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRLoginWebViewController.h; sourceTree = "<group>"; };
 		FA84B55217BE79C000E4D201 /* LTRLoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRLoginWebViewController.m; sourceTree = "<group>"; };
+		FACEF05F17C3BCF5005AD690 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		FACEF06017C3BCF5005AD690 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		FACEF06217C3C837005AD690 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
+		FACEF06317C3C837005AD690 /* checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark@2x.png"; sourceTree = "<group>"; };
+		FACEF06617C3C90E005AD690 /* x-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-mark.png"; sourceTree = "<group>"; };
+		FACEF06717C3C90E005AD690 /* x-mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-mark@2x.png"; sourceTree = "<group>"; };
 		FAD5FA3617C2BE4D005A44BE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		FAD5FA3717C2BE4D005A44BE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		FAD5FA3817C2BE4D005A44BE /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -142,6 +153,10 @@
 		FA1FE2BB17BD5F8F0040304D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FACEF06617C3C90E005AD690 /* x-mark.png */,
+				FACEF06717C3C90E005AD690 /* x-mark@2x.png */,
+				FACEF06217C3C837005AD690 /* checkmark.png */,
+				FACEF06317C3C837005AD690 /* checkmark@2x.png */,
 				FA1FE2BD17BD60EB0040304D /* heart.png */,
 				FA1FE2BC17BD5F8F0040304D /* heart@2x.png */,
 			);
@@ -190,6 +205,15 @@
 				FA84B55217BE79C000E4D201 /* LTRLoginWebViewController.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		FACEF05E17C3BCF5005AD690 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				FACEF05F17C3BCF5005AD690 /* MBProgressHUD.h */,
+				FACEF06017C3BCF5005AD690 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		FAD5FA3517C2BE4D005A44BE /* TestFlight */ = {
@@ -276,6 +300,7 @@
 		FAE2F8F217A98BB70066438C /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FACEF05E17C3BCF5005AD690 /* MBProgressHUD */,
 				FAD5FA3517C2BE4D005A44BE /* TestFlight */,
 				FAE2F8F317A98BB70066438C /* AFNetworking */,
 			);
@@ -370,6 +395,10 @@
 				FAF94CBC17AA255700821067 /* lister_114.png in Resources */,
 				FAD5FA3D17C2BE4D005A44BE /* README.md in Resources */,
 				FAD5FA3E17C2BE4D005A44BE /* release_notes.md in Resources */,
+				FACEF06417C3C837005AD690 /* checkmark.png in Resources */,
+				FACEF06517C3C837005AD690 /* checkmark@2x.png in Resources */,
+				FACEF06817C3C90E005AD690 /* x-mark.png in Resources */,
+				FACEF06917C3C90E005AD690 /* x-mark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +446,7 @@
 				FA84B55317BE79C000E4D201 /* LTRLoginWebViewController.m in Sources */,
 				FAE2F91917A98DC00066438C /* LTRHTTPClient.m in Sources */,
 				FAE2F91C17A99AD90066438C /* LTRAddEditItemViewController.m in Sources */,
+				FACEF06117C3BCF5005AD690 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
