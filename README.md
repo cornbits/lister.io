@@ -1,6 +1,6 @@
 # Lister.io iOS App
 
-A simple iOS app for [Lister.io](http://lister.io/)
+A simple iOS app for [Lister.io](http://lister.io/). The app is currently Waiting for Review with Apple and will be available on the App Store very soon.
 
 Your participation is welcome. Feel free to fork, add missing features or report issues. 
 
