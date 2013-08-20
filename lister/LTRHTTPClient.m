@@ -28,10 +28,7 @@
 }
 
 - (id)init {
-	NSURL *base = nil;
-	NSString *version = [[self class] apiVersion];
-    
-    base = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/%@/", @"http", @"lister.io/api", version]];
+    NSURL *base = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/", @"http", @"lister.io/api"]];
 	
 	if ((self = [super initWithBaseURL:base])) {
 		// Use JSON
@@ -39,6 +36,10 @@
 		[self setDefaultHeader:@"Accept" value:@"application/json"];
 		
 		_callbackQueue = dispatch_queue_create("com.lister.network-callback-queue", 0);
+        
+        [self setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            NSLog(@"LTRHTTPClient: reachability changed: %d", status);
+        }];
 	}
 	return self;
 }

@@ -2,6 +2,7 @@
 // Prefix header for all source files of the 'lister' target in the 'lister' project
 //
 
+#import <SystemConfiguration/SystemConfiguration.h>
 #import <Availability.h>
 #import "TestFlight.h"
 

@@ -68,7 +68,6 @@
     _loginButton = [[UIButton alloc] initWithFrame:loginButtonFrame];
     [_loginButton addTarget:self action:@selector(loginWebView:) forControlEvents:UIControlEventTouchUpInside];
     [_loginButton setTitle:@"I don't know my API key" forState:UIControlStateNormal];
-    [_loginButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     _loginButton.titleLabel.font = [UIFont systemFontOfSize:13.0f];
     _loginButton.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_loginButton];
@@ -80,8 +79,10 @@
         NSLog(@"Login results = %@", json);
         
         // quick hacky check for login error
-        if ([[json objectAtIndex:0] isKindOfClass:[NSString class]] &&
-            [[json objectAtIndex:0] rangeOfString:@"Expected status code"].location != NSNotFound) {
+        if ([[json objectAtIndex:0] isKindOfClass:[NSString class]] && 
+            ([[json objectAtIndex:0] rangeOfString:@"Expected status code"].location != NSNotFound ||
+            [[json objectAtIndex:0] rangeOfString:@"The request timed out"].location != NSNotFound))
+        {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
         }
