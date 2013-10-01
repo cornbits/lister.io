@@ -15,6 +15,11 @@
 		FA5351E717BD6423006BDF08 /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1FE2BC17BD5F8F0040304D /* heart@2x.png */; };
 		FA84B55317BE79C000E4D201 /* LTRLoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA84B55217BE79C000E4D201 /* LTRLoginWebViewController.m */; };
 		FAC66A5617FA1EBC004FDC03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A5517FA1EBC004FDC03 /* Images.xcassets */; };
+		FAC66A5D17FB1D4E004FDC03 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A5B17FB1D4E004FDC03 /* gear.png */; };
+		FAC66A5E17FB1D4E004FDC03 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A5C17FB1D4E004FDC03 /* gear@2x.png */; };
+		FAC66A6117FB2147004FDC03 /* LTRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC66A6017FB2147004FDC03 /* LTRSettingsViewController.m */; };
+		FAC66A6517FB55F4004FDC03 /* LTRCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC66A6417FB55F4004FDC03 /* LTRCreditsViewController.m */; };
+		FAC66A6717FB692B004FDC03 /* icon_RR.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A6617FB692B004FDC03 /* icon_RR.png */; };
 		FACEF06117C3BCF5005AD690 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FACEF06017C3BCF5005AD690 /* MBProgressHUD.m */; };
 		FACEF06417C3C837005AD690 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEF06217C3C837005AD690 /* checkmark.png */; };
 		FACEF06517C3C837005AD690 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEF06317C3C837005AD690 /* checkmark@2x.png */; };
@@ -68,6 +73,13 @@
 		FA84B55117BE79C000E4D201 /* LTRLoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRLoginWebViewController.h; sourceTree = "<group>"; };
 		FA84B55217BE79C000E4D201 /* LTRLoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRLoginWebViewController.m; sourceTree = "<group>"; };
 		FAC66A5517FA1EBC004FDC03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FAC66A5B17FB1D4E004FDC03 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		FAC66A5C17FB1D4E004FDC03 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
+		FAC66A5F17FB2147004FDC03 /* LTRSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRSettingsViewController.h; sourceTree = "<group>"; };
+		FAC66A6017FB2147004FDC03 /* LTRSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRSettingsViewController.m; sourceTree = "<group>"; };
+		FAC66A6317FB55F4004FDC03 /* LTRCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRCreditsViewController.h; sourceTree = "<group>"; };
+		FAC66A6417FB55F4004FDC03 /* LTRCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRCreditsViewController.m; sourceTree = "<group>"; };
+		FAC66A6617FB692B004FDC03 /* icon_RR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_RR.png; sourceTree = "<group>"; };
 		FACEF05F17C3BCF5005AD690 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FACEF06017C3BCF5005AD690 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		FACEF06217C3C837005AD690 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
@@ -152,6 +164,9 @@
 		FA1FE2BB17BD5F8F0040304D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FAC66A6617FB692B004FDC03 /* icon_RR.png */,
+				FAC66A5B17FB1D4E004FDC03 /* gear.png */,
+				FAC66A5C17FB1D4E004FDC03 /* gear@2x.png */,
 				FAF94CBB17AA255700821067 /* lister_114.png */,
 				FAF94CB917AA253E00821067 /* lister_57.png */,
 				FACEF06617C3C90E005AD690 /* x-mark.png */,
@@ -221,6 +236,17 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
+		FAC66A6217FB55D8004FDC03 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FAC66A5F17FB2147004FDC03 /* LTRSettingsViewController.h */,
+				FAC66A6017FB2147004FDC03 /* LTRSettingsViewController.m */,
+				FAC66A6317FB55F4004FDC03 /* LTRCreditsViewController.h */,
+				FAC66A6417FB55F4004FDC03 /* LTRCreditsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		FACEF05E17C3BCF5005AD690 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +306,7 @@
 			children = (
 				FAC66A5717FA4E57004FDC03 /* Core */,
 				FA84B55017BE799B00E4D201 /* Login */,
+				FAC66A6217FB55D8004FDC03 /* Settings */,
 				FA49A99617AA000E002F7122 /* Lists */,
 				FA49A99717AA0013002F7122 /* Items */,
 				FA3062D417BBCD0B0025D902 /* Data Objects */,
@@ -369,6 +396,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Geoff Cornwall";
+				TargetAttributes = {
+					FAE2F8CB17A9881B0066438C = {
+						DevelopmentTeam = QEZ833AQFT;
+					};
+				};
 			};
 			buildConfigurationList = FAE2F8C717A9881B0066438C /* Build configuration list for PBXProject "lister" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -392,6 +424,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC66A5E17FB1D4E004FDC03 /* gear@2x.png in Resources */,
 				FA5351E617BD6420006BDF08 /* heart.png in Resources */,
 				FAE2F8DA17A9881B0066438C /* InfoPlist.strings in Resources */,
 				FAE2F8E217A9881B0066438C /* Default.png in Resources */,
@@ -401,7 +434,9 @@
 				FAC66A5617FA1EBC004FDC03 /* Images.xcassets in Resources */,
 				FAF94CBA17AA253E00821067 /* lister_57.png in Resources */,
 				FAF94CBC17AA255700821067 /* lister_114.png in Resources */,
+				FAC66A6717FB692B004FDC03 /* icon_RR.png in Resources */,
 				FAD5FA3D17C2BE4D005A44BE /* README.md in Resources */,
+				FAC66A5D17FB1D4E004FDC03 /* gear.png in Resources */,
 				FAD5FA3E17C2BE4D005A44BE /* release_notes.md in Resources */,
 				FACEF06417C3C837005AD690 /* checkmark.png in Resources */,
 				FACEF06517C3C837005AD690 /* checkmark@2x.png in Resources */,
@@ -438,8 +473,10 @@
 				FAE2F8E017A9881B0066438C /* LTRAppDelegate.m in Sources */,
 				FAE2F8EE17A988330066438C /* LTRListsViewController.m in Sources */,
 				FAE2F8F117A988430066438C /* LTRItemsViewController.m in Sources */,
+				FAC66A6517FB55F4004FDC03 /* LTRCreditsViewController.m in Sources */,
 				FAE2F90717A98BB70066438C /* AFHTTPClient.m in Sources */,
 				FA3062DA17BBCD460025D902 /* LTRItem.m in Sources */,
+				FAC66A6117FB2147004FDC03 /* LTRSettingsViewController.m in Sources */,
 				FAE2F90817A98BB70066438C /* AFHTTPRequestOperation.m in Sources */,
 				FA31982F17A9B1BA003DD2B0 /* LTRAddEditListViewController.m in Sources */,
 				FAE2F90917A98BB70066438C /* AFImageRequestOperation.m in Sources */,

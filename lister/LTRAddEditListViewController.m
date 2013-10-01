@@ -96,6 +96,7 @@
     [self.view addSubview:label];
     
     _switch = [[UISwitch alloc] initWithFrame:switchFrame];
+    [_switch setOnTintColor:[UIColor blackColor]];
     if (_editMode) [_switch setOn:_editList.isOpen];
     [self.view addSubview:_switch];
 }

@@ -9,6 +9,7 @@
 #import "LTRListsViewController.h"
 #import "LTRItemsViewController.h"
 #import "LTRAddEditListViewController.h"
+#import "LTRSettingsViewController.h"
 #import "LTRLoginViewController.h"
 #import "LTRHTTPClient.h"
 #import "LTRUtility.h"
@@ -28,15 +29,20 @@
     _listSegControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"My Lists", @"All Lists", nil]];
     [_listSegControl addTarget:self action:@selector(listSegControlChanged:)forControlEvents:UIControlEventValueChanged];
     [_listSegControl setSelectedSegmentIndex:0];
+    _listSegControl.frame = CGRectMake(0,0,175,30);
     self.navigationItem.titleView = _listSegControl;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                               target:self action:@selector(addList:)];
     
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+//                                             initWithTitle:@"Logout" style:UIBarButtonSystemItemAction
+//                                             target:self action:@selector(logout:)];
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithTitle:@"Logout" style:UIBarButtonSystemItemAction
-                                             target:self action:@selector(logout:)];
+                                             initWithImage:[UIImage imageNamed:@"gear.png"] style:UIBarButtonItemStylePlain
+                                             target:self action:@selector(displaySettings:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -121,6 +127,12 @@
 - (void)displayLogin {
     LTRLoginViewController *loginViewController = [[LTRLoginViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+	[self presentViewController:navController animated:NO completion:nil];
+}
+
+- (void)displaySettings:(id)sender {
+    LTRSettingsViewController *settingsViewController = [[LTRSettingsViewController alloc] initWithDelegate:self];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
 	[self presentViewController:navController animated:YES completion:nil];
 }
 

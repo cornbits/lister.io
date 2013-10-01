@@ -7,8 +7,9 @@
 //
 
 #import "LTRList.h"
+#import "LTRSettingsViewController.h"
 
-@interface LTRListsViewController : UITableViewController {
+@interface LTRListsViewController : UITableViewController <SettingsDelegate> {
     NSString *_apiToken;
     NSString *_userId;
     NSString *_username;
