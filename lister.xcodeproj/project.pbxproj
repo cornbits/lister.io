@@ -24,7 +24,6 @@
 		FAD5FA3D17C2BE4D005A44BE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FAD5FA3717C2BE4D005A44BE /* README.md */; };
 		FAD5FA3E17C2BE4D005A44BE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FAD5FA3817C2BE4D005A44BE /* release_notes.md */; };
 		FAD5FA4017C2BEA4005A44BE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD5FA3F17C2BEA4005A44BE /* libz.dylib */; };
-		FAD5FA4617C3B46D005A44BE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD5FA4417C3B453005A44BE /* Crashlytics.framework */; };
 		FAD81B9E17A9CAAF007CCDB0 /* LTRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD81B9D17A9CAAF007CCDB0 /* LTRLoginViewController.m */; };
 		FAE2F8D017A9881B0066438C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2F8CF17A9881B0066438C /* UIKit.framework */; };
 		FAE2F8D217A9881B0066438C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2F8D117A9881B0066438C /* Foundation.framework */; };
@@ -82,7 +81,6 @@
 		FAD5FA3A17C2BE4D005A44BE /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		FAD5FA3B17C2BE4D005A44BE /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		FAD5FA3F17C2BEA4005A44BE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		FAD5FA4417C3B453005A44BE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = External/Crashlytics.framework; sourceTree = "<group>"; };
 		FAD81B9C17A9CAAF007CCDB0 /* LTRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRLoginViewController.h; sourceTree = "<group>"; };
 		FAD81B9D17A9CAAF007CCDB0 /* LTRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRLoginViewController.m; sourceTree = "<group>"; };
 		FAE2F8CC17A9881B0066438C /* Lister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lister.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,7 +135,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD5FA4617C3B46D005A44BE /* Crashlytics.framework in Frameworks */,
 				FAE2F91517A98D1B0066438C /* Security.framework in Frameworks */,
 				FAE2F91317A98C890066438C /* MobileCoreServices.framework in Frameworks */,
 				FAE2F91117A98C810066438C /* SystemConfiguration.framework in Frameworks */,
@@ -274,7 +271,6 @@
 				FAE2F8D117A9881B0066438C /* Foundation.framework */,
 				FAE2F91417A98D1B0066438C /* Security.framework */,
 				FAE2F8D317A9881B0066438C /* CoreGraphics.framework */,
-				FAD5FA4417C3B453005A44BE /* Crashlytics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -428,7 +424,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./External/Crashlytics.framework/run c5a1a833f477c2c1bc556289437cee0418ada93d";
+			shellScript = "";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 

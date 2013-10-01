@@ -69,7 +69,7 @@
     _newItem.borderStyle = UITextBorderStyleRoundedRect;
     _newItem.font = [UIFont systemFontOfSize:15];
     _newItem.autocorrectionType = UITextAutocorrectionTypeNo;
-    _newItem.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    _newItem.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     _newItem.keyboardType = UIKeyboardTypeDefault;
     _newItem.returnKeyType = UIReturnKeyDone;
     _newItem.clearButtonMode = UITextFieldViewModeWhileEditing;

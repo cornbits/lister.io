@@ -71,7 +71,7 @@
     _newList.borderStyle = UITextBorderStyleRoundedRect;
     _newList.font = [UIFont systemFontOfSize:15];
     _newList.autocorrectionType = UITextAutocorrectionTypeNo;
-    _newList.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    _newList.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     _newList.keyboardType = UIKeyboardTypeDefault;
     _newList.returnKeyType = UIReturnKeyDone;
     _newList.clearButtonMode = UITextFieldViewModeWhileEditing;
