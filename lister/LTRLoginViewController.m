@@ -30,10 +30,17 @@
     self.navigationItem.rightBarButtonItem = doneButton;
     
     // Set the frames
-    CGRect usernameLabelFrame = CGRectMake(25, 125, 100, 20);
-    CGRect usernameFrame = CGRectMake(20, 150, 280, 50);
-    CGRect pwdLabelFrame = CGRectMake(25, 225, 100, 20);
-    CGRect pwdFrame = CGRectMake(20, 250, 280, 50);
+    CGRect usernameLabelFrame = CGRectMake(25, 75, 100, 20);
+    CGRect usernameFrame = CGRectMake(20, 100, 280, 50);
+    CGRect pwdLabelFrame = CGRectMake(25, 175, 100, 20);
+    CGRect pwdFrame = CGRectMake(20, 200, 280, 50);
+    
+    if (IS_IPHONE5) {
+        usernameLabelFrame = CGRectMake(25, 100, 100, 20);
+        usernameFrame = CGRectMake(20, 125, 280, 50);
+        pwdLabelFrame = CGRectMake(25, 200, 100, 20);
+        pwdFrame = CGRectMake(20, 225, 280, 50);
+    }
 
     UILabel *usernameLabel = [[UILabel alloc] initWithFrame:usernameLabelFrame];
     usernameLabel.text = @"Username";

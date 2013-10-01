@@ -14,7 +14,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // TestFlight integration
-    //[TestFlight takeOff:@"73ed7ed8-c4f4-4433-9c33-1d4c980ddbc4"];
+    [TestFlight takeOff:@"73ed7ed8-c4f4-4433-9c33-1d4c980ddbc4"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
