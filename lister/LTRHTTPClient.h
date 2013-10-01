@@ -10,20 +10,22 @@
 #import "LTRList.h"
 #import "LTRItem.h"
 
-typedef void (^JSONResponseBlock)(NSArray* json);
+typedef void (^JSONResponseBlock)(BOOL success, NSDictionary* json);
 
 @interface LTRHTTPClient : AFHTTPClient
 
 + (LTRHTTPClient *)sharedInstance;
 + (NSString *)apiVersion;
 
-- (void)getLists:(NSString *)apiToken onCompletion:(JSONResponseBlock)completionBlock;
-- (void)getItems:(NSString *)listID onCompletion:(JSONResponseBlock)completionBlock;
+- (void)userLogin:(NSString *)username withPassword:(NSString *)password onCompletion:(JSONResponseBlock)completionBlock;
+- (void)getLists:(NSString *)listId withUserId:(NSString *)userId onCompletion:(JSONResponseBlock)completionBlock;
+- (void)getItems:(NSString *)listId onCompletion:(JSONResponseBlock)completionBlock;
 - (void)addList:(NSString *)listText isOpen:(BOOL)open onCompletion:(JSONResponseBlock)completionBlock;
 - (void)addItem:(NSString *)itemText forList:(LTRList *)list onCompletion:(JSONResponseBlock)completionBlock;
 - (void)deleteList:(NSString *)listId onCompletion:(JSONResponseBlock)completionBlock;
 - (void)deleteItem:(NSString *)itemId onCompletion:(JSONResponseBlock)completionBlock;
 - (void)editList:(LTRList *)list onCompletion:(JSONResponseBlock)completionBlock;
 - (void)editItem:(LTRItem *)item onCompletion:(JSONResponseBlock)completionBlock;
+- (void)upDownVoteItem:(LTRItem *)item upVote:(BOOL)up onCompletion:(JSONResponseBlock)completionBlock;
 
 @end

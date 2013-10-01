@@ -40,8 +40,7 @@
     [TestFlight passCheckpoint:@"ADD|EDIT_ITEMS"];
     [super viewDidLoad];
     
-    NSData *colorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"color"];
-    _randomColor = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
+    _randomColor = [LTRUtility randomColor];
     self.view.backgroundColor = _randomColor;
 
     if (_editMode) {
@@ -93,14 +92,14 @@
 }
 
 - (void)addItem:(id)sender {
-    [[LTRHTTPClient sharedInstance] addItem:_newItem.text forList:_list onCompletion:^(NSArray *json)
+    [[LTRHTTPClient sharedInstance] addItem:_newItem.text forList:_list onCompletion:^(BOOL success, NSDictionary *json)
     {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }
 
 - (void)editItem:(id)sender {
-    [[LTRHTTPClient sharedInstance] editItem:_editItem onCompletion:^(NSArray *json) {
+    [[LTRHTTPClient sharedInstance] editItem:_editItem onCompletion:^(BOOL success, NSDictionary *json) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }

@@ -10,11 +10,13 @@
 
 @property (nonatomic) NSString *itemId;
 @property (nonatomic) NSString *itemText;
+@property (nonatomic) NSString *url;
 @property (nonatomic) NSString *listId;
 @property (nonatomic) NSString *listSlug;
 @property (nonatomic) int score;
-@property (nonatomic) NSString *userId;
-@property (nonatomic) NSString *username;
+@property (nonatomic) NSString *itemUserId;
+@property (nonatomic) NSString *itemUsername;
+@property (nonatomic) NSDate *createdAt;
 
 -(id)initWithData:(NSDictionary *)data;
 

@@ -10,5 +10,6 @@
 
 + (UIColor *)randomColor;
 + (NSString *)slugName:(NSString *)name;
++ (NSString *)dateAsString:(NSDate *)date;
 
 @end

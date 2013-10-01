@@ -9,6 +9,7 @@
 #import "LTRLoginViewController.h"
 #import "LTRLoginWebViewController.h"
 #import "LTRHTTPClient.h"
+#import "LTRUtility.h"
 
 @interface LTRLoginViewController ()
 
@@ -21,8 +22,7 @@
     [TestFlight passCheckpoint:@"LOGIN_VIEW"];
     [super viewDidLoad];
     
-    NSData *colorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"color"];
-    _randomColor = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
+    _randomColor = [LTRUtility randomColor];
     self.view.backgroundColor = _randomColor;
     self.navigationItem.title = @"Login";
     
@@ -30,77 +30,73 @@
     self.navigationItem.rightBarButtonItem = doneButton;
     
     // Set the frames
-    CGRect labelFrame;
-    CGRect apiTokenFrame;
-    CGRect loginButtonFrame;
+    CGRect usernameLabelFrame = CGRectMake(25, 125, 100, 20);
+    CGRect usernameFrame = CGRectMake(20, 150, 280, 50);
+    CGRect pwdLabelFrame = CGRectMake(25, 225, 100, 20);
+    CGRect pwdFrame = CGRectMake(20, 250, 280, 50);
 
-    if (SYSTEM_VERSION_LESS_THAN(@"7.0") || !IS_IPHONE5) {
-        labelFrame = CGRectMake(25, 60, 100, 20);
-        apiTokenFrame = CGRectMake(20, 85, 280, 50);
-        loginButtonFrame = CGRectMake(60, 150, 200, 25);
-    }
-    else {
-        labelFrame = CGRectMake(25, 125, 100, 20);
-        apiTokenFrame = CGRectMake(20, 150, 280, 50);
-        loginButtonFrame = CGRectMake(60, 220, 200, 25);
-    }
+    UILabel *usernameLabel = [[UILabel alloc] initWithFrame:usernameLabelFrame];
+    usernameLabel.text = @"Username";
+    usernameLabel.textColor = [UIColor whiteColor];
+    usernameLabel.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:usernameLabel];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
-    label.text = @"API Key";
-    label.textColor = [UIColor whiteColor];
-    label.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:label];
+    UILabel *pwdLabel = [[UILabel alloc] initWithFrame:pwdLabelFrame];
+    pwdLabel.text = @"Password";
+    pwdLabel.textColor = [UIColor whiteColor];
+    pwdLabel.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:pwdLabel];
     
-    _apiToken = [[UITextField alloc] initWithFrame:apiTokenFrame];
-    _apiToken.borderStyle = UITextBorderStyleRoundedRect;
-    _apiToken.font = [UIFont systemFontOfSize:13];
-    _apiToken.placeholder = @"api key";
-    _apiToken.autocorrectionType = UITextAutocorrectionTypeNo;
-    _apiToken.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    _apiToken.keyboardType = UIKeyboardTypeDefault;
-    _apiToken.returnKeyType = UIReturnKeyGo;
-    _apiToken.clearButtonMode = UITextFieldViewModeWhileEditing;
-    _apiToken.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    _apiToken.delegate = self;
-    [_apiToken becomeFirstResponder];
-    [self.view addSubview:_apiToken];
+    _username = [[UITextField alloc] initWithFrame:usernameFrame];
+    _username.borderStyle = UITextBorderStyleRoundedRect;
+    _username.font = [UIFont systemFontOfSize:13];
+    _username.placeholder = @"username";
+    _username.autocorrectionType = UITextAutocorrectionTypeNo;
+    _username.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    _username.keyboardType = UIKeyboardTypeDefault;
+    _username.returnKeyType = UIReturnKeyGo;
+    _username.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _username.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _username.delegate = self;
+    [_username becomeFirstResponder];
+    [self.view addSubview:_username];
     
-    _loginButton = [[UIButton alloc] initWithFrame:loginButtonFrame];
-    [_loginButton addTarget:self action:@selector(loginWebView:) forControlEvents:UIControlEventTouchUpInside];
-    [_loginButton setTitle:@"I don't know my API key" forState:UIControlStateNormal];
-    _loginButton.titleLabel.font = [UIFont systemFontOfSize:13.0f];
-    _loginButton.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:_loginButton];
+    _password = [[UITextField alloc] initWithFrame:pwdFrame];
+    _password.borderStyle = UITextBorderStyleRoundedRect;
+    _password.font = [UIFont systemFontOfSize:13];
+    _password.placeholder = @"password";
+    _password.autocorrectionType = UITextAutocorrectionTypeNo;
+    _password.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    _password.keyboardType = UIKeyboardTypeDefault;
+    _password.returnKeyType = UIReturnKeyGo;
+    _password.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _password.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _password.secureTextEntry = TRUE;
+    _password.delegate = self;
+    [_password becomeFirstResponder];
+    [self.view addSubview:_password];
 }
 
 - (void)login:(id)sender {
     [self presentHUD];
     
-    // TODO: replace with actual login endpoint once it exists
-    [[LTRHTTPClient sharedInstance] getLists:_apiToken.text onCompletion:^(NSArray *json) {
+    [[LTRHTTPClient sharedInstance] userLogin:_username.text withPassword:_password.text onCompletion:^(BOOL success, NSDictionary *json) {
         NSLog(@"Login results = %@", json);
-        
-        // quick hacky check for login error
-        if ([[json objectAtIndex:0] isKindOfClass:[NSString class]] && 
-            ([[json objectAtIndex:0] rangeOfString:@"Expected status code"].location != NSNotFound ||
-            [[json objectAtIndex:0] rangeOfString:@"The request timed out"].location != NSNotFound))
-        {
-            [self dismissHUDWithText:@"Login error" withDelay:4 withImage:@"x-mark.png"];
-        }
-        else if ([json count] > 0) {
-            [self dismissHUDWithText:@"Succesful" withDelay:2 withImage:@"checkmark.png"];
 
-            NSDictionary *listDict = [json objectAtIndex:0];
-            [[NSUserDefaults standardUserDefaults] setValue:[listDict objectForKey:@"username"] forKey:@"username"];
-            [[NSUserDefaults standardUserDefaults] setValue:[listDict objectForKey:@"userId"] forKey:@"userId"];
-            [[NSUserDefaults standardUserDefaults] setValue:_apiToken.text forKey:@"apiToken"];
+        
+        if (success) {
+            [self dismissHUDWithText:@"Succesful" withDelay:2 withImage:@"checkmark.png"];
+            
+            [[NSUserDefaults standardUserDefaults] setValue:_username.text forKey:@"username"];
+            [[NSUserDefaults standardUserDefaults] setValue:_password.text forKey:@"password"];
+            [[NSUserDefaults standardUserDefaults] setValue:[json objectForKey:@"userId"] forKey:@"userId"];
+            [[NSUserDefaults standardUserDefaults] setValue:[json objectForKey:@"loginToken"] forKey:@"apiToken"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your API Token is no longer valid, or you do not have at least 1 list on Lister.io" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
+            [self dismissHUDWithText:@"Login error" withDelay:2 withImage:@"x-mark.png"];
         }
     }];
 }

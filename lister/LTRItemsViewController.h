@@ -7,11 +7,12 @@
 //
 
 #import "LTRList.h"
+#import "LTRItem.h"
 
-@interface LTRItemsViewController : UITableViewController {
+@interface LTRItemsViewController : UITableViewController <UIActionSheetDelegate> {
+    LTRItem *_itemToVote;
     LTRList *_list;
-    NSMutableArray *_allItems;
-    NSMutableArray *_filteredItems;
+    NSArray *_items;
     UIColor *_randomColor;
 }
 

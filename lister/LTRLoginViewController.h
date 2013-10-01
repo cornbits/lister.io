@@ -9,9 +9,9 @@
 #import "MBProgressHUD.h"
 
 @interface LTRLoginViewController : UIViewController <UITextFieldDelegate> {
-    UITextField *_apiToken;
+    UITextField *_username;
+    UITextField *_password;
     UIColor *_randomColor;
-    UIButton *_loginButton;
     MBProgressHUD *_hud;
 }
 

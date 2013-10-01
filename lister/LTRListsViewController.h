@@ -10,8 +10,11 @@
 
 @interface LTRListsViewController : UITableViewController {
     NSString *_apiToken;
-    NSMutableArray *_lists;
+    NSString *_userId;
+    NSString *_username;
+    NSArray *_lists;
     UIColor *_randomColor;
+    UISegmentedControl *_listSegControl;
 }
 
 @end

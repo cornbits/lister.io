@@ -23,11 +23,6 @@
     LTRListsViewController *listsViewController = [[LTRListsViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:listsViewController];
 	self.window.rootViewController = navigationController;
-
-    //Set the navbar if not iOS7
-    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
-        navigationController.navigationBar.tintColor = [UIColor lightGrayColor];
-    }
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

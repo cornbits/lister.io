@@ -14,13 +14,17 @@
 	self = [super init];
 	if (self) {
         @try {
-            _itemId = [data objectForKey:@"_id"];
+            _itemId = [data objectForKey:@"id"];
             _itemText = [data objectForKey:@"text"];
+            _url = [data objectForKey:@"url"];
             _listId = [data objectForKey:@"listId"];
-            _userId = [data objectForKey:@"userId"];
-            _username = [data objectForKey:@"username"];
+            _itemUserId = [data objectForKey:@"itemUserId"];
+            _itemUsername = [data objectForKey:@"itemUsername"];
             _listSlug = [data objectForKey:@"listSlug"];
             _score = [[data objectForKey:@"score"] intValue];
+            _createdAt = [data objectForKey:@"createdAt"];
+            //NSLog(@"LTRItem: data = %@", data);
+            NSLog(@"LTRItem: item = %@; score = %i; createdAt = %@", _itemText, _score, _createdAt);
         }
         @catch (NSException *exception) {
             NSLog(@"LTRItem error: %@", exception);

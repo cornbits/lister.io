@@ -14,7 +14,7 @@
 	self = [super init];
 	if (self) {
         @try {
-            _listId = [data objectForKey:@"_id"];
+            _listId = [data objectForKey:@"id"];
             _listName = [data objectForKey:@"name"];
             _userId = [data objectForKey:@"userId"];
             _username = [data objectForKey:@"username"];
@@ -32,6 +32,8 @@
             else {
                 _isOpen = FALSE;
             }
+            
+            NSLog(@"LTRList: name = %@; createdAt = %@; isOpen = %@", _listName, _createdAt, _isOpen ? @"true" : @"false");
         }
         @catch (NSException *exception) {
             NSLog(@"LTRList error: %@", exception);
