@@ -161,11 +161,18 @@
 }
 
 
-- (void)addItem:(NSString *)itemText forList:(LTRList *)list onCompletion:(JSONResponseBlock)completionBlock {
+- (void)addItem:(NSString *)itemText withURL:(NSString *)itemURL forList:(LTRList *)list onCompletion:(JSONResponseBlock)completionBlock {
     NSString *apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiToken"];
     NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
 
-    NSString *parameters = [NSString stringWithFormat:@"text=%@&url=lister.io", itemText];
+    NSString *parameters;
+    if ([itemURL isEqualToString:@""]) {
+        parameters = [NSString stringWithFormat:@"text=%@", itemText];
+    } else {
+        parameters = [NSString stringWithFormat:@"text=%@&url=%@", itemText, itemURL];
+    }
+    NSLog(@"LTRHTTPClient: addItem: parameters: %@", parameters);
+    
     NSData *postData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
     NSString *apiURL = [NSString stringWithFormat:@"http://lister.io/api/v2/lists/%@/items", list.listId];
     NSURL *url = [NSURL URLWithString:apiURL];

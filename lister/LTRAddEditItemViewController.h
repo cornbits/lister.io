@@ -11,6 +11,7 @@
 
 @interface LTRAddEditItemViewController : UIViewController <UITextFieldDelegate> {
     UITextField *_newItem;
+    UITextField *_newItemURL;
     UIColor *_randomColor;
     LTRItem *_editItem;
     BOOL _editMode;

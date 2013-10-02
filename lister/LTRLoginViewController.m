@@ -30,12 +30,18 @@
     self.navigationItem.rightBarButtonItem = doneButton;
     
     // Set the frames
-    CGRect usernameLabelFrame = CGRectMake(25, 75, 100, 20);
-    CGRect usernameFrame = CGRectMake(20, 100, 280, 50);
-    CGRect pwdLabelFrame = CGRectMake(25, 175, 100, 20);
-    CGRect pwdFrame = CGRectMake(20, 200, 280, 50);
+    CGRect usernameLabelFrame;
+    CGRect usernameFrame;
+    CGRect pwdLabelFrame;
+    CGRect pwdFrame;
     
-    if (IS_IPHONE5) {
+    if (!IS_IPHONE5) {
+        usernameLabelFrame = CGRectMake(25, 80, 100, 20);
+        usernameFrame = CGRectMake(20, 105, 280, 50);
+        pwdLabelFrame = CGRectMake(25, 170, 100, 20);
+        pwdFrame = CGRectMake(20, 195, 280, 50);
+    }
+    else {
         usernameLabelFrame = CGRectMake(25, 100, 100, 20);
         usernameFrame = CGRectMake(20, 125, 280, 50);
         pwdLabelFrame = CGRectMake(25, 200, 100, 20);
@@ -46,12 +52,14 @@
     usernameLabel.text = @"Username";
     usernameLabel.textColor = [UIColor whiteColor];
     usernameLabel.backgroundColor = [UIColor clearColor];
+    usernameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
     [self.view addSubview:usernameLabel];
     
     UILabel *pwdLabel = [[UILabel alloc] initWithFrame:pwdLabelFrame];
     pwdLabel.text = @"Password";
     pwdLabel.textColor = [UIColor whiteColor];
     pwdLabel.backgroundColor = [UIColor clearColor];
+    pwdLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
     [self.view addSubview:pwdLabel];
     
     _username = [[UITextField alloc] initWithFrame:usernameFrame];

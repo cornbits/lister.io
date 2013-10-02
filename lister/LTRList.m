@@ -32,8 +32,6 @@
             else {
                 _isOpen = FALSE;
             }
-            
-            NSLog(@"LTRList: name = %@; createdAt = %@; isOpen = %@", _listName, _createdAt, _isOpen ? @"true" : @"false");
         }
         @catch (NSException *exception) {
             NSLog(@"LTRList error: %@", exception);

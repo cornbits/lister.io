@@ -56,15 +56,15 @@
     CGRect newListFrame;
     CGRect labelFrame;
     CGRect switchFrame;
-    if (SYSTEM_VERSION_LESS_THAN(@"7.0") || !IS_IPHONE5) {
-        newListFrame = CGRectMake(20, 65, 280, 50);
-        labelFrame = CGRectMake(50, 135, 150, 30);
-        switchFrame = CGRectMake(210, 135, 50, 30);
+    if (!IS_IPHONE5) {
+        newListFrame = CGRectMake(20, 100, 280, 50);
+        labelFrame = CGRectMake(50, 175, 160, 30);
+        switchFrame = CGRectMake(218, 175, 50, 30);
     }
     else {
         newListFrame = CGRectMake(20, 125, 280, 50);
-        labelFrame = CGRectMake(50, 200, 150, 30);
-        switchFrame = CGRectMake(210, 200, 50, 30);
+        labelFrame = CGRectMake(50, 200, 160, 30);
+        switchFrame = CGRectMake(218, 200, 50, 30);
     }
 
     _newList = [[UITextField alloc] initWithFrame:newListFrame];
@@ -83,7 +83,7 @@
         _newList.text = _editList.listName;
     }
     else {
-        _newList.placeholder = @"new list";
+        _newList.placeholder = @"Give your list a name...";
     }
     
     [self.view addSubview:_newList];
@@ -91,7 +91,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
     label.textColor = [UIColor whiteColor];
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:13];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
     label.text = @"Allow anyone to add to it?";
     [self.view addSubview:label];
     

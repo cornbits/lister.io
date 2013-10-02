@@ -58,13 +58,18 @@
     
     // Set the needed frames
     CGRect newItemFrame;
-    if (SYSTEM_VERSION_LESS_THAN(@"7.0") || !IS_IPHONE5) {
-        newItemFrame = CGRectMake(20, 65, 280, 50);
+    CGRect newItemURLFrame;
+    
+    if (!IS_IPHONE5) {
+        newItemFrame = CGRectMake(20, 100, 280, 50);
+        newItemURLFrame = CGRectMake(20, 175, 280, 50);
     }
     else {
         newItemFrame = CGRectMake(20, 125, 280, 50);
+        newItemURLFrame = CGRectMake(20, 200, 280, 50);
     }
 
+    // new item text
     _newItem = [[UITextField alloc] initWithFrame:newItemFrame];
     _newItem.borderStyle = UITextBorderStyleRoundedRect;
     _newItem.font = [UIFont systemFontOfSize:15];
@@ -81,10 +86,23 @@
         _newItem.text = _editItem.itemText;
     }
     else {
-        _newItem.placeholder = @"add item";
+        _newItem.placeholder = @"text";
     }
-
     [self.view addSubview:_newItem];
+    
+    // new item URL
+    _newItemURL = [[UITextField alloc] initWithFrame:newItemURLFrame];
+    _newItemURL.borderStyle = UITextBorderStyleRoundedRect;
+    _newItemURL.font = [UIFont systemFontOfSize:15];
+    _newItemURL.autocorrectionType = UITextAutocorrectionTypeNo;
+    _newItemURL.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+    _newItemURL.keyboardType = UIKeyboardTypeDefault;
+    _newItemURL.returnKeyType = UIReturnKeyDone;
+    _newItemURL.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _newItemURL.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _newItemURL.placeholder = @"url (optional)";
+    _newItemURL.delegate = self;
+    [self.view addSubview:_newItemURL];
 }
 
 - (void)cancel:(id)sender {
@@ -92,8 +110,10 @@
 }
 
 - (void)addItem:(id)sender {
-    [[LTRHTTPClient sharedInstance] addItem:_newItem.text forList:_list onCompletion:^(BOOL success, NSDictionary *json)
-    {
+    NSLog(@"_newItemURL = %@", _newItemURL);
+    
+    [[LTRHTTPClient sharedInstance] addItem:_newItem.text withURL:_newItemURL.text forList:_list
+                               onCompletion:^(BOOL success, NSDictionary *json) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }

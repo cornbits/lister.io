@@ -23,8 +23,6 @@
             _listSlug = [data objectForKey:@"listSlug"];
             _score = [[data objectForKey:@"score"] intValue];
             _createdAt = [data objectForKey:@"createdAt"];
-            //NSLog(@"LTRItem: data = %@", data);
-            NSLog(@"LTRItem: item = %@; score = %i; createdAt = %@", _itemText, _score, _createdAt);
         }
         @catch (NSException *exception) {
             NSLog(@"LTRItem error: %@", exception);
