@@ -36,9 +36,9 @@
     [self.view addSubview:titleLabel];
 
 
-    NSDictionary *creditAttrBold = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:14],
+    NSDictionary *creditAttrBold = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Medium" size:15],
                                   NSForegroundColorAttributeName : [UIColor blackColor]};
-    NSDictionary *creditAttr = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:14],
+    NSDictionary *creditAttr = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:15],
                                   NSForegroundColorAttributeName : [UIColor blackColor]};
 
 

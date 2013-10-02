@@ -57,6 +57,10 @@
     return ([self.dataSourceArray count] / 2);
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = nil;
 	
@@ -71,6 +75,14 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.textLabel.text = cellText;
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+    
+    if (indexPath.section == 0) {
+        cell.imageView.image = [UIImage imageNamed:@"notepad.png"];
+    } else {
+        cell.imageView.image = [UIImage imageNamed:@"unlocked.png"];
+    }
 	
 	return cell;
 }

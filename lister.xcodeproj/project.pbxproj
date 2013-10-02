@@ -20,6 +20,10 @@
 		FAC66A6117FB2147004FDC03 /* LTRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC66A6017FB2147004FDC03 /* LTRSettingsViewController.m */; };
 		FAC66A6517FB55F4004FDC03 /* LTRCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC66A6417FB55F4004FDC03 /* LTRCreditsViewController.m */; };
 		FAC66A6717FB692B004FDC03 /* icon_RR.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A6617FB692B004FDC03 /* icon_RR.png */; };
+		FAC66A6B17FBB2F0004FDC03 /* unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A6917FBB2F0004FDC03 /* unlocked.png */; };
+		FAC66A6C17FBB2F0004FDC03 /* unlocked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A6A17FBB2F0004FDC03 /* unlocked@2x.png */; };
+		FAC66A6F17FBB3B2004FDC03 /* notepad.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A6D17FBB3B2004FDC03 /* notepad.png */; };
+		FAC66A7017FBB3B2004FDC03 /* notepad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A6E17FBB3B2004FDC03 /* notepad@2x.png */; };
 		FACEF06117C3BCF5005AD690 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FACEF06017C3BCF5005AD690 /* MBProgressHUD.m */; };
 		FACEF06417C3C837005AD690 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEF06217C3C837005AD690 /* checkmark.png */; };
 		FACEF06517C3C837005AD690 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEF06317C3C837005AD690 /* checkmark@2x.png */; };
@@ -80,6 +84,10 @@
 		FAC66A6317FB55F4004FDC03 /* LTRCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRCreditsViewController.h; sourceTree = "<group>"; };
 		FAC66A6417FB55F4004FDC03 /* LTRCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRCreditsViewController.m; sourceTree = "<group>"; };
 		FAC66A6617FB692B004FDC03 /* icon_RR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_RR.png; sourceTree = "<group>"; };
+		FAC66A6917FBB2F0004FDC03 /* unlocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlocked.png; sourceTree = "<group>"; };
+		FAC66A6A17FBB2F0004FDC03 /* unlocked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unlocked@2x.png"; sourceTree = "<group>"; };
+		FAC66A6D17FBB3B2004FDC03 /* notepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notepad.png; sourceTree = "<group>"; };
+		FAC66A6E17FBB3B2004FDC03 /* notepad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notepad@2x.png"; sourceTree = "<group>"; };
 		FACEF05F17C3BCF5005AD690 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FACEF06017C3BCF5005AD690 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		FACEF06217C3C837005AD690 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
@@ -164,6 +172,10 @@
 		FA1FE2BB17BD5F8F0040304D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FAC66A6D17FBB3B2004FDC03 /* notepad.png */,
+				FAC66A6E17FBB3B2004FDC03 /* notepad@2x.png */,
+				FAC66A6917FBB2F0004FDC03 /* unlocked.png */,
+				FAC66A6A17FBB2F0004FDC03 /* unlocked@2x.png */,
 				FAC66A6617FB692B004FDC03 /* icon_RR.png */,
 				FAC66A5B17FB1D4E004FDC03 /* gear.png */,
 				FAC66A5C17FB1D4E004FDC03 /* gear@2x.png */,
@@ -424,6 +436,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC66A6F17FBB3B2004FDC03 /* notepad.png in Resources */,
+				FAC66A6B17FBB2F0004FDC03 /* unlocked.png in Resources */,
+				FAC66A7017FBB3B2004FDC03 /* notepad@2x.png in Resources */,
+				FAC66A6C17FBB2F0004FDC03 /* unlocked@2x.png in Resources */,
 				FAC66A5E17FB1D4E004FDC03 /* gear@2x.png in Resources */,
 				FA5351E617BD6420006BDF08 /* heart.png in Resources */,
 				FAE2F8DA17A9881B0066438C /* InfoPlist.strings in Resources */,

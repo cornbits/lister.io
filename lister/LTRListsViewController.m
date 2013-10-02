@@ -36,13 +36,11 @@
                                               initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                               target:self action:@selector(addList:)];
     
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-//                                             initWithTitle:@"Logout" style:UIBarButtonSystemItemAction
-//                                             target:self action:@selector(logout:)];
-    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithImage:[UIImage imageNamed:@"gear.png"] style:UIBarButtonItemStylePlain
                                              target:self action:@selector(displaySettings:)];
+    
+    //self.navigationController.navigationBar.tintColor = [UIColor purpleColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
