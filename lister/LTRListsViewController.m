@@ -210,7 +210,6 @@
     
     LTRList *list;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        NSLog(@"cellForRowAtIndexPath: _filteredLists.count = %i", _filteredLists.count);
         list = [_filteredLists objectAtIndex:indexPath.row];
     } else {
         list = [_lists objectAtIndex:indexPath.row];
@@ -221,7 +220,7 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:18];
     
     return cell;
 }
@@ -253,7 +252,13 @@
 #pragma mark - UITableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    LTRList *list = [_lists objectAtIndex:indexPath.row];
+    LTRList *list;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        list = [_filteredLists objectAtIndex:indexPath.row];
+    } else {
+        list = [_lists objectAtIndex:indexPath.row];
+    }
+    
     LTRItemsViewController *itemsViewController = [[LTRItemsViewController alloc] initWithList:list];
     self.navigationItem.title = @"";
     [self.navigationController pushViewController:itemsViewController animated:YES];

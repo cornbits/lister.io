@@ -35,7 +35,7 @@
     
     // lister.io title
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 210, 320, 40)];
-    NSDictionary *titleAttr = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:35],
+    NSDictionary *titleAttr = @{ NSFontAttributeName : [UIFont fontWithName:@"Avenir-Light" size:35],
                                  NSForegroundColorAttributeName : [UIColor purpleColor]};
     NSAttributedString *titleAttrStr = [[NSAttributedString alloc] initWithString:@"Lister.io" attributes:titleAttr];
     [titleLabel setAttributedText:titleAttrStr];
@@ -43,9 +43,9 @@
     [self.view addSubview:titleLabel];
 
 
-    NSDictionary *creditAttrBold = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Medium" size:15],
+    NSDictionary *creditAttrBold = @{ NSFontAttributeName : [UIFont fontWithName:@"Avenir-Medium" size:15],
                                   NSForegroundColorAttributeName : [UIColor blackColor]};
-    NSDictionary *creditAttr = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:15],
+    NSDictionary *creditAttr = @{ NSFontAttributeName : [UIFont fontWithName:@"Avenir-Light" size:15],
                                   NSForegroundColorAttributeName : [UIColor blackColor]};
 
 

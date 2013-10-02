@@ -64,18 +64,18 @@
     CGRect switchFrame;
     if (!IS_IPHONE5) {
         newListFrame = CGRectMake(20, 100, 280, 50);
-        labelFrame = CGRectMake(50, 175, 160, 30);
-        switchFrame = CGRectMake(218, 175, 50, 30);
+        labelFrame = CGRectMake(45, 175, 175, 30);
+        switchFrame = CGRectMake(223, 175, 50, 30);
     }
     else {
         newListFrame = CGRectMake(20, 125, 280, 50);
-        labelFrame = CGRectMake(50, 200, 160, 30);
-        switchFrame = CGRectMake(218, 200, 50, 30);
+        labelFrame = CGRectMake(45, 200, 175, 30);
+        switchFrame = CGRectMake(223, 200, 50, 30);
     }
 
     _newList = [[UITextField alloc] initWithFrame:newListFrame];
     _newList.borderStyle = UITextBorderStyleRoundedRect;
-    _newList.font = [UIFont systemFontOfSize:15];
+    _newList.font = [UIFont fontWithName:@"Avenir-Light" size:14];
     _newList.autocorrectionType = UITextAutocorrectionTypeNo;
     _newList.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     _newList.keyboardType = UIKeyboardTypeDefault;
@@ -97,7 +97,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
     label.textColor = [UIColor whiteColor];
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
+    label.font = [UIFont fontWithName:@"Avenir-Light" size:14];
     label.text = @"Allow anyone to add to it?";
     [self.view addSubview:label];
     

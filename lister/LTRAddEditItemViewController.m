@@ -78,7 +78,7 @@
     // new item text
     _newItem = [[UITextField alloc] initWithFrame:newItemFrame];
     _newItem.borderStyle = UITextBorderStyleRoundedRect;
-    _newItem.font = [UIFont systemFontOfSize:15];
+    _newItem.font = [UIFont fontWithName:@"Avenir-Light" size:14];
     _newItem.autocorrectionType = UITextAutocorrectionTypeNo;
     _newItem.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     _newItem.keyboardType = UIKeyboardTypeDefault;
@@ -99,7 +99,7 @@
     // new item URL
     _newItemURL = [[UITextField alloc] initWithFrame:newItemURLFrame];
     _newItemURL.borderStyle = UITextBorderStyleRoundedRect;
-    _newItemURL.font = [UIFont systemFontOfSize:15];
+    _newItemURL.font = [UIFont fontWithName:@"Avenir-Light" size:14];
     _newItemURL.autocorrectionType = UITextAutocorrectionTypeNo;
     _newItemURL.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     _newItemURL.keyboardType = UIKeyboardTypeDefault;
