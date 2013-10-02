@@ -27,4 +27,6 @@
     #import <SystemConfiguration/SystemConfiguration.h>
     #import <MobileCoreServices/MobileCoreServices.h>
     #import "TestFlight.h"
+    #import "GAI.h"
+    #import "GAIFields.h"
 #endif

@@ -23,9 +23,15 @@
 }
 
 - (void)viewDidLoad {
-    [TestFlight passCheckpoint:@"SETTINGS_VIEW"];
     [super viewDidLoad];
-    
+
+    // TestFlight / GAI
+    [TestFlight passCheckpoint:@"SETTINGS_VIEW"];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-32232417-4"];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"appview", kGAIHitType, @"SETTINGS_VIEW", kGAIScreenName, nil];
+    [tracker send:params];
+
     self.navigationItem.title = @"Settings";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithTitle:@"Done" style:UIBarButtonItemStyleBordered

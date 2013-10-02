@@ -19,9 +19,15 @@
 
 
 - (void)viewDidLoad {
-    [TestFlight passCheckpoint:@"LOGIN_VIEW"];
     [super viewDidLoad];
-    
+
+    // TestFlight / GAI
+    [TestFlight passCheckpoint:@"LOGIN_VIEW"];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-32232417-4"];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"appview", kGAIHitType, @"LOGIN_VIEW", kGAIScreenName, nil];
+    [tracker send:params];
+
     _randomColor = [LTRUtility randomColor];
     self.view.backgroundColor = _randomColor;
     self.navigationItem.title = @"Login";

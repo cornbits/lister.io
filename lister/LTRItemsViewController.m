@@ -26,9 +26,15 @@
 }
 
 - (void)viewDidLoad {
-    [TestFlight passCheckpoint:@"ITEMS_VIEW"];
     [super viewDidLoad];
     
+    // TestFlight / GAI
+    [TestFlight passCheckpoint:@"ITEMS_VIEW"];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-32232417-4"];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"appview", kGAIHitType, @"ITEMS_VIEW", kGAIScreenName, nil];
+    [tracker send:params];
+
     _randomColor = [LTRUtility randomColor];
     self.tableView.backgroundColor = _randomColor;
     

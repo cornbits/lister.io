@@ -21,9 +21,15 @@
 @implementation LTRListsViewController
 
 - (void)viewDidLoad {
-    [TestFlight passCheckpoint:@"LISTS_VIEW"];
     [super viewDidLoad];
-    
+
+    // TestFlight / GAI
+    [TestFlight passCheckpoint:@"LISTS_VIEW"];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-32232417-4"];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"appview", kGAIHitType, @"LISTS_VIEW", kGAIScreenName, nil];
+    [tracker send:params];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
 
     _listSegControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"My Lists", @"All Lists", nil]];

@@ -34,8 +34,14 @@
 }
 
 - (void)viewDidLoad {
-    [TestFlight passCheckpoint:@"ADD|EDIT_LISTS"];
     [super viewDidLoad];
+
+    // TestFlight / GAI
+    [TestFlight passCheckpoint:@"ADD_LISTS"];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-32232417-4"];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"appview", kGAIHitType, @"ADD_LISTS", kGAIScreenName, nil];
+    [tracker send:params];
 
     _randomColor = [LTRUtility randomColor];
     self.view.backgroundColor = _randomColor;

@@ -14,6 +14,7 @@
 		FA5351E617BD6420006BDF08 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1FE2BD17BD60EB0040304D /* heart.png */; };
 		FA5351E717BD6423006BDF08 /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1FE2BC17BD5F8F0040304D /* heart@2x.png */; };
 		FA84B55317BE79C000E4D201 /* LTRLoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA84B55217BE79C000E4D201 /* LTRLoginWebViewController.m */; };
+		FAB7B26217FBD15600472376 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB7B26117FBD15600472376 /* CoreData.framework */; };
 		FAC66A5617FA1EBC004FDC03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A5517FA1EBC004FDC03 /* Images.xcassets */; };
 		FAC66A5D17FB1D4E004FDC03 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A5B17FB1D4E004FDC03 /* gear.png */; };
 		FAC66A5E17FB1D4E004FDC03 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC66A5C17FB1D4E004FDC03 /* gear@2x.png */; };
@@ -29,7 +30,6 @@
 		FACEF06517C3C837005AD690 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEF06317C3C837005AD690 /* checkmark@2x.png */; };
 		FACEF06817C3C90E005AD690 /* x-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEF06617C3C90E005AD690 /* x-mark.png */; };
 		FACEF06917C3C90E005AD690 /* x-mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FACEF06717C3C90E005AD690 /* x-mark@2x.png */; };
-		FAD5FA3C17C2BE4D005A44BE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD5FA3617C2BE4D005A44BE /* libTestFlight.a */; };
 		FAD5FA3D17C2BE4D005A44BE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FAD5FA3717C2BE4D005A44BE /* README.md */; };
 		FAD5FA3E17C2BE4D005A44BE /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = FAD5FA3817C2BE4D005A44BE /* release_notes.md */; };
 		FAD5FA4017C2BEA4005A44BE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD5FA3F17C2BEA4005A44BE /* libz.dylib */; };
@@ -61,6 +61,8 @@
 		FAE2F91C17A99AD90066438C /* LTRAddEditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE2F91B17A99AD90066438C /* LTRAddEditItemViewController.m */; };
 		FAF94CBA17AA253E00821067 /* lister_57.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF94CB917AA253E00821067 /* lister_57.png */; };
 		FAF94CBC17AA255700821067 /* lister_114.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF94CBB17AA255700821067 /* lister_114.png */; };
+		FAF97D4117FBD69A00DEAB3D /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF97D4017FBD69A00DEAB3D /* libGoogleAnalyticsServices.a */; };
+		FAF97D4217FBD70F00DEAB3D /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD5FA3617C2BE4D005A44BE /* libTestFlight.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,7 @@
 		FA31983117A9B95A003DD2B0 /* LTRUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRUtility.m; sourceTree = "<group>"; };
 		FA84B55117BE79C000E4D201 /* LTRLoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRLoginWebViewController.h; sourceTree = "<group>"; };
 		FA84B55217BE79C000E4D201 /* LTRLoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRLoginWebViewController.m; sourceTree = "<group>"; };
+		FAB7B26117FBD15600472376 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FAC66A5517FA1EBC004FDC03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FAC66A5B17FB1D4E004FDC03 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		FAC66A5C17FB1D4E004FDC03 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
@@ -88,6 +91,13 @@
 		FAC66A6A17FBB2F0004FDC03 /* unlocked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unlocked@2x.png"; sourceTree = "<group>"; };
 		FAC66A6D17FBB3B2004FDC03 /* notepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notepad.png; sourceTree = "<group>"; };
 		FAC66A6E17FBB3B2004FDC03 /* notepad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notepad@2x.png"; sourceTree = "<group>"; };
+		FAC66A7317FBCECF004FDC03 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		FAC66A7417FBCECF004FDC03 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		FAC66A7517FBCECF004FDC03 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		FAC66A7617FBCECF004FDC03 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		FAC66A7717FBCECF004FDC03 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		FAC66A7817FBCECF004FDC03 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		FAC66A7917FBCECF004FDC03 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
 		FACEF05F17C3BCF5005AD690 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		FACEF06017C3BCF5005AD690 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		FACEF06217C3C837005AD690 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
@@ -148,6 +158,7 @@
 		FAE2F91B17A99AD90066438C /* LTRAddEditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRAddEditItemViewController.m; sourceTree = "<group>"; };
 		FAF94CB917AA253E00821067 /* lister_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lister_57.png; path = ../../lister_57.png; sourceTree = "<group>"; };
 		FAF94CBB17AA255700821067 /* lister_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lister_114.png; path = ../../lister_114.png; sourceTree = "<group>"; };
+		FAF97D4017FBD69A00DEAB3D /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,14 +166,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB7B26217FBD15600472376 /* CoreData.framework in Frameworks */,
 				FAE2F91517A98D1B0066438C /* Security.framework in Frameworks */,
 				FAE2F91317A98C890066438C /* MobileCoreServices.framework in Frameworks */,
+				FAF97D4117FBD69A00DEAB3D /* libGoogleAnalyticsServices.a in Frameworks */,
 				FAE2F91117A98C810066438C /* SystemConfiguration.framework in Frameworks */,
 				FAE2F8D017A9881B0066438C /* UIKit.framework in Frameworks */,
 				FAE2F8D217A9881B0066438C /* Foundation.framework in Frameworks */,
 				FAE2F8D417A9881B0066438C /* CoreGraphics.framework in Frameworks */,
+				FAF97D4217FBD70F00DEAB3D /* libTestFlight.a in Frameworks */,
 				FAD5FA4017C2BEA4005A44BE /* libz.dylib in Frameworks */,
-				FAD5FA3C17C2BE4D005A44BE /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +272,21 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		FAC66A7217FBCECF004FDC03 /* GAI */ = {
+			isa = PBXGroup;
+			children = (
+				FAF97D4017FBD69A00DEAB3D /* libGoogleAnalyticsServices.a */,
+				FAC66A7317FBCECF004FDC03 /* GAI.h */,
+				FAC66A7417FBCECF004FDC03 /* GAIDictionaryBuilder.h */,
+				FAC66A7517FBCECF004FDC03 /* GAIFields.h */,
+				FAC66A7617FBCECF004FDC03 /* GAILogger.h */,
+				FAC66A7717FBCECF004FDC03 /* GAITrackedViewController.h */,
+				FAC66A7817FBCECF004FDC03 /* GAITracker.h */,
+				FAC66A7917FBCECF004FDC03 /* libGoogleAnalytics_debug.a */,
+			);
+			path = GAI;
+			sourceTree = "<group>";
+		};
 		FACEF05E17C3BCF5005AD690 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +330,7 @@
 		FAE2F8CE17A9881B0066438C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAB7B26117FBD15600472376 /* CoreData.framework */,
 				FAD5FA3F17C2BEA4005A44BE /* libz.dylib */,
 				FAE2F8CF17A9881B0066438C /* UIKit.framework */,
 				FAE2F91217A98C890066438C /* MobileCoreServices.framework */,
@@ -346,6 +375,7 @@
 		FAE2F8F217A98BB70066438C /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FAC66A7217FBCECF004FDC03 /* GAI */,
 				FACEF05E17C3BCF5005AD690 /* MBProgressHUD */,
 				FAD5FA3517C2BE4D005A44BE /* TestFlight */,
 				FAE2F8F317A98BB70066438C /* AFNetworking */,
@@ -551,7 +581,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -575,7 +605,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -599,7 +629,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/External/TestFlight\"",
+					"\\\\\\\"$(SRCROOT)/External/TestFlight\\\\\\\"",
+					/Users/cornwall/Dropbox/cornbits/Xcode/git/lister.io/External/GAI,
+					/Users/cornwall/Dropbox/cornbits/Xcode/git/lister.io/External/TestFlight,
 				);
 				PRODUCT_NAME = Lister;
 				PROVISIONING_PROFILE = "";
@@ -624,7 +656,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/External/TestFlight\"",
+					"\\\\\\\"$(SRCROOT)/External/TestFlight\\\\\\\"",
+					/Users/cornwall/Dropbox/cornbits/Xcode/git/lister.io/External/GAI,
+					/Users/cornwall/Dropbox/cornbits/Xcode/git/lister.io/External/TestFlight,
 				);
 				PRODUCT_NAME = Lister;
 				PROVISIONING_PROFILE = "";
