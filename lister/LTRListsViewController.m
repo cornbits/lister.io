@@ -39,8 +39,26 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithImage:[UIImage imageNamed:@"gear.png"] style:UIBarButtonItemStylePlain
                                              target:self action:@selector(displaySettings:)];
-    
-    //self.navigationController.navigationBar.tintColor = [UIColor purpleColor];
+
+    // search bar
+    isSearching = FALSE;
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,0,200,45)];
+    searchBar = [[UISearchBar alloc] init];
+    searchBar.tintColor = [UIColor darkGrayColor];
+    searchBar.delegate = self;
+    searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    searchDisplayController.delegate = self;
+    searchDisplayController.searchResultsDataSource = self;
+    searchDisplayController.searchResultsDelegate = self;
+	self.tableView.tableHeaderView = searchBar;
+    self.tableView.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.tableView.contentOffset = CGPointMake(0, 44);
+    //[searchDisplayController setActive:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -165,7 +183,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_lists count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [_filteredLists count];
+    } else {
+        return [_lists count];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -180,7 +202,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    LTRList *list = [_lists objectAtIndex:indexPath.row];
+    LTRList *list;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        NSLog(@"cellForRowAtIndexPath: _filteredLists.count = %i", _filteredLists.count);
+        list = [_filteredLists objectAtIndex:indexPath.row];
+    } else {
+        list = [_lists objectAtIndex:indexPath.row];
+    }
+
     cell.textLabel.text = list.listName;
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -223,6 +252,47 @@
     self.navigationItem.title = @"";
     [self.navigationController pushViewController:itemsViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [searchBar resignFirstResponder];
+    [searchDisplayController setActive:NO];
 }
+
+#pragma mark - UISearchBar delegate
+
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    [_filteredLists removeAllObjects];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.listName contains[c] %@",searchText];
+    _filteredLists = [NSMutableArray arrayWithArray:[_lists filteredArrayUsingPredicate:predicate]];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    return YES;
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)searchTableView {
+    searchTableView.backgroundColor = self.tableView.backgroundColor;
+    searchTableView.rowHeight = 60;
+}
+
+- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller {
+    [self.tableView reloadData];
+}
+
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
+    [self.searchDisplayController.searchBar setShowsCancelButton:YES animated:NO];
+    for (UIView *subView in self.searchDisplayController.searchBar.subviews){
+        if([subView isKindOfClass:[UIButton class]]){
+            [(UIButton*)subView setTitle:@"Done" forState:UIControlStateNormal];
+        }
+    }
+}
+
 
 @end
