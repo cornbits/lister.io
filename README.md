@@ -8,9 +8,9 @@ Lister is an iOS 7 only app, and requires ARC. Released under the [MIT license](
 
 ## Screenshots
 
-<img src="http://i.imgur.com/GmAA7cD.png" width=320 height=568 alt="lister1">
+<img src="http://i.imgur.com/F8GAB3v.png" width=320 height=568 alt="lister1">
 &nbsp;&nbsp;
-<img src="http://i.imgur.com/joKACXt.png" width=320 height=568 alt="lister2">
+<img src="http://i.imgur.com/Oc4T7aW.png" width=320 height=568 alt="lister2">
 
 ## TODO
 
