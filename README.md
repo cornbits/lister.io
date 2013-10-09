@@ -14,5 +14,7 @@ Lister is an iOS 7 only app, and requires ARC. Released under the [MIT license](
 
 ## TODO
 
+* Add text wrapping of lists and items
+* Add keyboard navigation for login screen
 * Add ability to open URLs for items that have one set
 * Add ability to share URL link for a list
