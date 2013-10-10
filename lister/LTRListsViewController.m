@@ -197,7 +197,17 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    LTRList *list = [_lists objectAtIndex:indexPath.row];
+    UIFont *myFont = [UIFont fontWithName:@"AvenirNext-Regular" size:20];
+    CGRect textRect = [list.listName boundingRectWithSize:CGSizeMake(250, 200)
+                                                  options:NSStringDrawingUsesLineFragmentOrigin
+                                               attributes:@{NSFontAttributeName:myFont}
+                                                  context:nil];
+    CGFloat PADDING_BOTTOM = 25;
+    CGFloat totalHeight = textRect.size.height + PADDING_BOTTOM;
+    
+    if (totalHeight < 60) return 60;
+    else return totalHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -221,6 +231,8 @@
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:18];
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.textLabel.numberOfLines = 0;
     
     return cell;
 }

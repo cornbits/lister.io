@@ -115,7 +115,15 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    LTRItem *item = [_items objectAtIndex:indexPath.row];
+    UIFont *myFont = [UIFont fontWithName:@"AvenirNext-Regular" size:20];
+    CGRect textRect = [item.itemText boundingRectWithSize:CGSizeMake(250, 200)
+                                         options:NSStringDrawingUsesLineFragmentOrigin
+                                      attributes:@{NSFontAttributeName:myFont}
+                                         context:nil];
+    CGFloat PADDING_BOTTOM = 35;
+    CGFloat totalHeight = textRect.size.height + PADDING_BOTTOM;
+    return totalHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -137,6 +145,8 @@
     cell.detailTextLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ by %@", dateString, item.itemUsername];
     cell.detailTextLabel.textColor = [UIColor colorWithRed:235.0/255.0 green:235.0/255.0 blue:235.0/255.0 alpha:1.0];
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.textLabel.numberOfLines = 0;
 
     UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     scoreLabel.textColor = [UIColor whiteColor];
