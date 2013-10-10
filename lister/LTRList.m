@@ -7,6 +7,7 @@
 //
 
 #import "LTRList.h"
+#import "LTRUtility.h"
 
 @implementation LTRList
 
@@ -15,7 +16,7 @@
 	if (self) {
         @try {
             _listId = [data objectForKey:@"id"];
-            _listName = [data objectForKey:@"name"];
+            _listName = [LTRUtility URLDecodeString:[data objectForKey:@"name"]];
             _userId = [data objectForKey:@"userId"];
             _username = [data objectForKey:@"username"];
             _slug = [data objectForKey:@"slug"];

@@ -118,7 +118,7 @@
 - (void)addItem:(id)sender {
     NSLog(@"_newItemURL = %@", _newItemURL);
     
-    [[LTRHTTPClient sharedInstance] addItem:_newItem.text withURL:_newItemURL.text forList:_list
+    [[LTRHTTPClient sharedInstance] addItem:[LTRUtility URLEncodeString:_newItem.text] withURL:_newItemURL.text forList:_list
                                onCompletion:^(BOOL success, NSDictionary *json) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];

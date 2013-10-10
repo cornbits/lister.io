@@ -60,4 +60,68 @@
     return returnDateString;
 }
 
++ (NSString *) URLEncodeString:(NSString *)escaped {
+    if ([escaped isEqual:[NSNull null]]) {
+        escaped = @"";
+    }
+    
+	escaped = [escaped stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"+" withString:@"%2B"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"," withString:@"%2C"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"/" withString:@"%2F"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@":" withString:@"%3A"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@";" withString:@"%3B"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"@" withString:@"%40"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"\t" withString:@"%09"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"#" withString:@"%23"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"\n" withString:@"%0A"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"!" withString:@"%21"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"#" withString:@"%23"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"$" withString:@"%24"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%" withString:@"%25"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"&" withString:@"%26"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"'" withString:@"%27"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"(" withString:@"%28"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@")" withString:@"%29"];
+
+	return escaped;
+}
+
++ (NSString *) URLDecodeString:(NSString *)escaped {
+    if ([escaped isEqual:[NSNull null]]) {
+        escaped = @"";
+    }
+    
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%2B" withString:@"+"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%2C" withString:@","];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%2F" withString:@"/"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%3A" withString:@":"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%3B" withString:@";"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%5C" withString:@"\\"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%40" withString:@"@"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%09" withString:@"\t"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%23" withString:@"#"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%3C" withString:@"<"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%3E" withString:@">"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%22" withString:@"\\"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%0A" withString:@"\n"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%21" withString:@"!"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%22" withString:@"\""];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%23" withString:@"#"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%24" withString:@"$"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%25" withString:@"%"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%26" withString:@"&"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%27" withString:@"'"];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%28" withString:@"("];
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%29" withString:@")"];
+    
+	return escaped;
+}
+
+
 @end

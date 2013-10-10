@@ -112,7 +112,7 @@
 }
 
 - (void)addList:(id)sender {
-    [[LTRHTTPClient sharedInstance] addList:_newList.text isOpen:_switch.isOn onCompletion:^(BOOL success, NSDictionary *json) {
+    [[LTRHTTPClient sharedInstance] addList:[LTRUtility URLEncodeString:_newList.text] isOpen:_switch.isOn onCompletion:^(BOOL success, NSDictionary *json) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }

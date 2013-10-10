@@ -7,6 +7,7 @@
 //
 
 #import "LTRItem.h"
+#import "LTRUtility.h"
 
 @implementation LTRItem
 
@@ -15,7 +16,7 @@
 	if (self) {
         @try {
             _itemId = [data objectForKey:@"id"];
-            _itemText = [data objectForKey:@"text"];
+            _itemText = [LTRUtility URLDecodeString:[data objectForKey:@"text"]];
             _url = [data objectForKey:@"url"];
             _listId = [data objectForKey:@"listId"];
             _itemUserId = [data objectForKey:@"itemUserId"];

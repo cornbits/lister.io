@@ -11,5 +11,7 @@
 + (UIColor *)randomColor;
 + (NSString *)slugName:(NSString *)name;
 + (NSString *)dateAsString:(NSDate *)date;
++ (NSString *)URLEncodeString:(NSString *)escaped;
++ (NSString *)URLDecodeString:(NSString *)escaped;
 
 @end
