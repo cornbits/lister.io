@@ -58,14 +58,14 @@
     usernameLabel.text = @"Username";
     usernameLabel.textColor = [UIColor whiteColor];
     usernameLabel.backgroundColor = [UIColor clearColor];
-    usernameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
+    usernameLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16];
     [self.view addSubview:usernameLabel];
     
     UILabel *pwdLabel = [[UILabel alloc] initWithFrame:pwdLabelFrame];
     pwdLabel.text = @"Password";
     pwdLabel.textColor = [UIColor whiteColor];
     pwdLabel.backgroundColor = [UIColor clearColor];
-    pwdLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
+    pwdLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16];
     [self.view addSubview:pwdLabel];
     
     _username = [[UITextField alloc] initWithFrame:usernameFrame];

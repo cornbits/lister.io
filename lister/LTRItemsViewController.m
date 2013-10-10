@@ -133,17 +133,14 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
-//    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
-//    cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12];
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:20];
-    cell.detailTextLabel.font = [UIFont fontWithName:@"Avenir-Light" size:12];
+    cell.textLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:20];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ by %@", dateString, item.itemUsername];
     cell.detailTextLabel.textColor = [UIColor colorWithRed:235.0/255.0 green:235.0/255.0 blue:235.0/255.0 alpha:1.0];
 
     UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     scoreLabel.textColor = [UIColor whiteColor];
-    scoreLabel.font = [UIFont fontWithName:@"Avenir-Light" size:18];
-//    scoreLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+    scoreLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:18];
     scoreLabel.text = [NSString stringWithFormat:@"%i", item.score];
     cell.accessoryView = scoreLabel;
 

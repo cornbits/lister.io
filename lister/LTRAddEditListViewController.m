@@ -75,7 +75,7 @@
 
     _newList = [[UITextField alloc] initWithFrame:newListFrame];
     _newList.borderStyle = UITextBorderStyleRoundedRect;
-    _newList.font = [UIFont fontWithName:@"Avenir-Light" size:14];
+    _newList.font = [UIFont fontWithName:@"AvenirNext-Regular" size:14];
     _newList.autocorrectionType = UITextAutocorrectionTypeNo;
     _newList.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     _newList.keyboardType = UIKeyboardTypeDefault;
@@ -97,7 +97,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
     label.textColor = [UIColor whiteColor];
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"Avenir-Light" size:14];
+    label.font = [UIFont fontWithName:@"AvenirNext-Regular" size:14];
     label.text = @"Allow anyone to add to it?";
     [self.view addSubview:label];
     

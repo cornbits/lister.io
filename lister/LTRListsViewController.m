@@ -220,7 +220,7 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:18];
+    cell.textLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:18];
     
     return cell;
 }

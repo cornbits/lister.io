@@ -82,7 +82,7 @@
     cell.textLabel.text = cellText;
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:18];
+    cell.textLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:18];
     
     if (indexPath.section == 0) {
         cell.imageView.image = [UIImage imageNamed:@"notepad.png"];
