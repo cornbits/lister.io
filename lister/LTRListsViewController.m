@@ -64,7 +64,6 @@
     [super viewWillAppear:animated];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.tableView.contentOffset = CGPointMake(0, 44);
-    //[searchDisplayController setActive:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

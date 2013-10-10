@@ -115,8 +115,6 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"GET"];
     [request setTimeoutInterval:10];
-
-    NSLog(@"getItems: URL = %@", url);
     
     AFJSONRequestOperation* operation = [[AFJSONRequestOperation alloc] initWithRequest: request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -171,7 +169,6 @@
     } else {
         parameters = [NSString stringWithFormat:@"text=%@&url=%@", itemText, itemURL];
     }
-    NSLog(@"LTRHTTPClient: addItem: parameters: %@", parameters);
     
     NSData *postData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
     NSString *apiURL = [NSString stringWithFormat:@"http://lister.io/api/v2/lists/%@/items", list.listId];
