@@ -75,10 +75,11 @@
     _username.autocorrectionType = UITextAutocorrectionTypeNo;
     _username.autocapitalizationType = UITextAutocapitalizationTypeNone;
     _username.keyboardType = UIKeyboardTypeDefault;
-    _username.returnKeyType = UIReturnKeyGo;
+    _username.returnKeyType = UIReturnKeyNext;
     _username.clearButtonMode = UITextFieldViewModeWhileEditing;
     _username.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     _username.delegate = self;
+    _username.tag = 1;
     [_username becomeFirstResponder];
     [self.view addSubview:_username];
     
@@ -94,7 +95,7 @@
     _password.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     _password.secureTextEntry = TRUE;
     _password.delegate = self;
-    [_password becomeFirstResponder];
+    _password.tag = 2;
     [self.view addSubview:_password];
 }
 
@@ -127,6 +128,8 @@
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
+#pragma mark - HUD control
+
 - (void)presentHUD {
     _hud = [[MBProgressHUD alloc] initWithView:self.view];
     _hud.bounds = CGRectMake(_hud.bounds.origin.x, (_hud.bounds.origin.y + 110), _hud.bounds.size.width, _hud.bounds.size.height);
@@ -143,8 +146,38 @@
     [_hud hide:YES afterDelay:delay];
 }
 
+#pragma mark - UITextFieldDelegate methods
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    if ((_username.text.length == 0) || (_password.text.length == 0)) {
+        self.navigationItem.rightBarButtonItem.enabled = FALSE;
+    } else {
+        self.navigationItem.rightBarButtonItem.enabled = TRUE;
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ((_username.text.length > 0) && (_password.text.length > 0)) {
+        self.navigationItem.rightBarButtonItem.enabled = TRUE;
+    } else {
+        self.navigationItem.rightBarButtonItem.enabled = FALSE;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    self.navigationItem.rightBarButtonItem.enabled = FALSE;
+    return YES;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self login:nil];
+    if (textField.tag == 1) {
+        [_password becomeFirstResponder];
+    } else {
+        [self login:nil];
+    }
+    
     return YES;
 }
 

@@ -119,7 +119,8 @@
 	escaped = [escaped stringByReplacingOccurrencesOfString:@"%27" withString:@"'"];
 	escaped = [escaped stringByReplacingOccurrencesOfString:@"%28" withString:@"("];
 	escaped = [escaped stringByReplacingOccurrencesOfString:@"%29" withString:@")"];
-    
+	escaped = [escaped stringByReplacingOccurrencesOfString:@"%97" withString:@"—"];
+
 	return escaped;
 }
 
